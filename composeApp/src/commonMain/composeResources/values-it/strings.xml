@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ALMAMap</string>
+    <string name="back">Indietro</string>
+    <string name="close">Chiudi</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Annulla</string>
+    <string name="appbar--search">Cerca posizioni...</string>
+    <string name="navbar--map">Mappa</string>
+    <string name="navbar--list">Elenco</string>
+    <string name="navbar--settings">Impostazioni</string>
+
+    <!-- Settings -->
+    <string name="settings--theme-title">Tema</string>
+    <string name="settings--theme-subtitle">Scegli il tema per l'app</string>
+    <string name="settings--theme-option-title">Tema</string>
+    <string name="settings--theme-option-light">Chiaro</string>
+    <string name="settings--theme-option-dark">Scuro</string>
+    <string name="settings--theme-option-system">Segui il sistema</string>
+    <string name="settings--device-colors-title">Usa i colori del dispositivo</string>
+    <string name="settings--device-colors-subtitle">Usa i colori del sistema per l'app</string>
+    <string name="settings--language-title">Lingua</string>
+    <string name="settings--language-subtitle">Scegli la lingua per l'app</string>
+    <string name="settings--language-option-title">Lingua</string>
+</resources>
