@@ -16,6 +16,7 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
+import it.unibo.almamap.ui.views.list.buildings.BuildingsListView
 import it.unibo.almamap.ui.views.settings.SettingsView
 import org.jetbrains.compose.resources.StringResource
 
@@ -43,7 +44,7 @@ enum class AppRoutes(val title: StringResource? = null, val content: @Composable
     Map(title = Res.string.navbar__map, content = { androidx.compose.foundation.Image(org.jetbrains.compose.resources.painterResource(
         Res.drawable.campus
     ), "") }),
-    List(title = Res.string.navbar__list, content = { androidx.compose.material3.Text("LISTA")}),
+    List(title = Res.string.navbar__list, content = { BuildingsListView() }),
     Settings(title = Res.string.navbar__settings, content = { SettingsView() })
 }
 
