@@ -7,3 +7,5 @@ import org.koin.dsl.module
 val appModule = module {
     single { Settings() as ObservableSettings }
 }
+
+val appModules = listOf(appModule, httpModule)
