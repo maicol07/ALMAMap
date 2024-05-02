@@ -1,18 +1,18 @@
 package it.unibo.almamap
 
-import almamap.composeapp.generated.resources.campus
 import almamap.composeapp.generated.resources.Res
+import almamap.composeapp.generated.resources.campus
 import almamap.composeapp.generated.resources.navbar__list
 import almamap.composeapp.generated.resources.navbar__map
 import almamap.composeapp.generated.resources.navbar__settings
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.automirrored.outlined.List
-import androidx.compose.material.icons.filled.Map
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.automirrored.rounded.List
 import androidx.compose.material.icons.outlined.Map
 import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.rounded.Map
+import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
@@ -49,7 +49,7 @@ enum class AppRoutes(val title: StringResource? = null, val content: @Composable
 }
 
 enum class NavBarItems(val route: AppRoutes, val unselectedIcon: @Composable () -> Unit, val selectedIcon: @Composable () -> Unit, val title: StringResource? = null) {
-    Map(AppRoutes.Map, { Icon(Icons.Outlined.Map, null) }, { Icon(Icons.Filled.Map, null) }),
-    List(AppRoutes.List, { Icon(Icons.AutoMirrored.Outlined.List, null) }, { Icon(Icons.AutoMirrored.Filled.List, null) }),
-    Settings(AppRoutes.Settings, { Icon(Icons.Outlined.Settings, null) }, { Icon(Icons.Filled.Settings, null) })
+    Map(AppRoutes.Map, { Icon(Icons.Outlined.Map, null) }, { Icon(Icons.Rounded.Map, null) }),
+    List(AppRoutes.List, { Icon(Icons.AutoMirrored.Outlined.List, null) }, { Icon(Icons.AutoMirrored.Rounded.List, null) }),
+    Settings(AppRoutes.Settings, { Icon(Icons.Outlined.Settings, null) }, { Icon(Icons.Rounded.Settings, null) })
 }
