@@ -69,6 +69,7 @@ kotlin {
             implementation(libs.composeSettings.ui.extended)
             implementation(libs.composeDialogs.core)
             implementation(libs.composeDialogs.list)
+            implementation(libs.compose.placeholder.material3)
         }
 
         commonTest.dependencies {
