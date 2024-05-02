@@ -37,14 +37,11 @@ import it.unibo.almamap.PlatformType
 import it.unibo.almamap.ThemeOptions
 import it.unibo.almamap.platform
 import it.unibo.almamap.utils.Languages
-import it.unibo.almamap.utils.TopAppBarState
 import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SettingsView() {
-    val viewModel = viewModel(SettingsViewModel::class)
-
+fun SettingsView(viewModel: SettingsViewModel = viewModel<SettingsViewModel>()) {
     val themeDialogState: UseCaseState = rememberUseCaseState()
     val languageDialogState: UseCaseState = rememberUseCaseState()
 
