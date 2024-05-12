@@ -8,6 +8,16 @@
     <string name="navbar--map">Mappa</string>
     <string name="navbar--list">Elenco</string>
     <string name="navbar--settings">Impostazioni</string>
+    <string name="loading">Caricamento...</string>
+
+    <!-- List -->
+    <string name="list--buildings-title">Edifici</string>
+    <string name="list--all-buildings">Tutti gli edifici</string>
+    <string name="list--spaces-title">Spazi</string>
+    <string name="list--floors-title">Piani</string>
+    <string name="list--all-floors">Tutti i piani</string>
+    <string name="list--no-buildings-found">Nessun edificio trovato</string>
+    <string name="list--no-spaces-found">"Nessun spazio trovato</string>
 
     <!-- Settings -->
     <string name="settings--theme-title">Tema</string>

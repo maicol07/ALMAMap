@@ -8,6 +8,16 @@
     <string name="navbar--map">Map</string>
     <string name="navbar--list">List</string>
     <string name="navbar--settings">Settings</string>
+    <string name="loading">Loading...</string>
+
+    <!-- List -->
+    <string name="list--buildings-title">Buildings</string>
+    <string name="list--all-buildings">All Buildings</string>
+    <string name="list--spaces-title">Spaces</string>
+    <string name="list--floors-title">Floors</string>
+    <string name="list--all-floors">All Floors</string>
+    <string name="list--no-buildings-found">No buildings found</string>
+    <string name="list--no-spaces-found">"No spaces found</string>
 
     <!-- Settings -->
     <string name="settings--theme-title">Theme</string>

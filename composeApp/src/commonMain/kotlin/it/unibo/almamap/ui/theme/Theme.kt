@@ -2,6 +2,8 @@ package it.unibo.almamap.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.ListItemColors
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
@@ -258,6 +260,97 @@ data class ColorFamily(
 val unspecified_scheme = ColorFamily(
     Color.Unspecified, Color.Unspecified, Color.Unspecified, Color.Unspecified
 )
+
+enum class AppListItemColors(val colors: @Composable () -> ListItemColors) {
+    PRIMARY({ ListItemDefaults.colors(
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+        headlineColor = MaterialTheme.colorScheme.onPrimaryContainer,
+//        disabledHeadlineColor = MaterialTheme.colorScheme.primary,
+        supportingColor = MaterialTheme.colorScheme.onPrimaryContainer,
+        overlineColor = MaterialTheme.colorScheme.onPrimaryContainer,
+        leadingIconColor = MaterialTheme.colorScheme.onPrimaryContainer,
+        trailingIconColor = MaterialTheme.colorScheme.onPrimaryContainer,
+//        disabledLeadingIconColor = MaterialTheme.colorScheme.primary,
+//        disabledTrailingIconColor = MaterialTheme.colorScheme.primary,
+    ) }),
+//    SECONDARY({ ListItemDefaults.colors(
+//        containerColor = MaterialTheme.colorScheme.secondaryContainer,
+//        headlineColor = MaterialTheme.colorScheme.onSecondaryContainer,
+////        disabledHeadlineColor = MaterialTheme.colorScheme.secondary,
+//        supportingColor = MaterialTheme.colorScheme.onSecondaryContainer,
+//        overlineColor = MaterialTheme.colorScheme.onSecondaryContainer,
+//        leadingIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
+//        trailingIconColor = MaterialTheme.colorScheme.onSecondaryContainer,
+////        disabledLeadingIconColor = MaterialTheme.colorScheme.secondary,
+////        disabledTrailingIconColor = MaterialTheme.colorScheme.secondary,
+//    ) }),
+    TERTIARY({ ListItemDefaults.colors(
+        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+        headlineColor = MaterialTheme.colorScheme.onTertiaryContainer,
+//        disabledHeadlineColor = MaterialTheme.colorScheme.tertiary,
+        supportingColor = MaterialTheme.colorScheme.onTertiaryContainer,
+        overlineColor = MaterialTheme.colorScheme.onTertiaryContainer,
+        leadingIconColor = MaterialTheme.colorScheme.onTertiaryContainer,
+        trailingIconColor = MaterialTheme.colorScheme.onTertiaryContainer,
+//        disabledLeadingIconColor = MaterialTheme.colorScheme.tertiary,
+//        disabledTrailingIconColor = MaterialTheme.colorScheme.tertiary,
+    ) }),
+//    ERROR({ ListItemDefaults.colors(
+//        containerColor = MaterialTheme.colorScheme.errorContainer,
+//        headlineColor = MaterialTheme.colorScheme.onErrorContainer,
+////        disabledHeadlineColor = MaterialTheme.colorScheme.error,
+//        supportingColor = MaterialTheme.colorScheme.onErrorContainer,
+//        overlineColor = MaterialTheme.colorScheme.onErrorContainer,
+//        leadingIconColor = MaterialTheme.colorScheme.onErrorContainer,
+//        trailingIconColor = MaterialTheme.colorScheme.onErrorContainer,
+////        disabledLeadingIconColor = MaterialTheme.colorScheme.error,
+////        disabledTrailingIconColor = MaterialTheme.colorScheme.error,
+//    ) }),
+    SURFACE_CONTAINER_LOWEST({ ListItemDefaults.colors(
+        containerColor = MaterialTheme.colorScheme.surfaceContainerLowest,
+        headlineColor = MaterialTheme.colorScheme.onSurface,
+//        disabledHeadlineColor = MaterialTheme.colorScheme.onSurface,
+        supportingColor = MaterialTheme.colorScheme.onSurface,
+        overlineColor = MaterialTheme.colorScheme.onSurface,
+        leadingIconColor = MaterialTheme.colorScheme.onSurface,
+        trailingIconColor = MaterialTheme.colorScheme.onSurface,
+//        disabledLeadingIconColor = MaterialTheme.colorScheme.onSurface,
+//        disabledTrailingIconColor = MaterialTheme.colorScheme.onSurface,
+    ) }),
+    SURFACE({ ListItemDefaults.colors(
+        containerColor = MaterialTheme.colorScheme.surfaceContainer,
+        headlineColor = MaterialTheme.colorScheme.onSurface,
+//        disabledHeadlineColor = MaterialTheme.colorScheme.surface,
+        supportingColor = MaterialTheme.colorScheme.onSurface,
+        overlineColor = MaterialTheme.colorScheme.onSurface,
+        leadingIconColor = MaterialTheme.colorScheme.onSurface,
+        trailingIconColor = MaterialTheme.colorScheme.onSurface,
+//        disabledLeadingIconColor = MaterialTheme.colorScheme.surface,
+//        disabledTrailingIconColor = MaterialTheme.colorScheme.surface,
+    ) }),
+    SURFACE_VARIANT({ ListItemDefaults.colors(
+        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        headlineColor = MaterialTheme.colorScheme.onSurfaceVariant,
+//        disabledHeadlineColor = MaterialTheme.colorScheme.surfaceVariant,
+        supportingColor = MaterialTheme.colorScheme.onSurfaceVariant,
+        overlineColor = MaterialTheme.colorScheme.onSurfaceVariant,
+        leadingIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+        trailingIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+//        disabledLeadingIconColor = MaterialTheme.colorScheme.surfaceVariant,
+        disabledTrailingIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
+    ) }),
+    SURFACE_CONTAINER_HIGH({ ListItemDefaults.colors(
+        containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+        headlineColor = MaterialTheme.colorScheme.onSurface,
+//        disabledHeadlineColor = MaterialTheme.colorScheme.surface,
+        supportingColor = MaterialTheme.colorScheme.onSurface,
+        overlineColor = MaterialTheme.colorScheme.onSurface,
+        leadingIconColor = MaterialTheme.colorScheme.onSurface,
+        trailingIconColor = MaterialTheme.colorScheme.onSurface,
+//        disabledLeadingIconColor = MaterialTheme.colorScheme.surface,
+//        disabledTrailingIconColor = MaterialTheme.colorScheme.surface,
+    ) }),
+}
 
 @OptIn(ExperimentalSettingsApi::class)
 @Composable

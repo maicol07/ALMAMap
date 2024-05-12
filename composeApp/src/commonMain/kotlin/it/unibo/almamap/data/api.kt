@@ -6,14 +6,14 @@ import kotlinx.serialization.Serializable
 data class Building(
     val code: String,
     val description: String,
-    val floors: List<Floor>,
+    val floors: List<BuildingFloor>,
     val id: Int,
     val legend: Legend,
     val name: String
 )
 
 @Serializable
-data class Floor(
+data class BuildingFloor(
     val id: Int,
     val name: String,
     val number: Int,
@@ -36,7 +36,7 @@ data class Space(
     val description: String?,
 //    val directionsFrom: List<Space>,
 //    val directionsTo: List<Space>,
-    val floor: SpaceFloor,
+    val floor: SpaceFloor?,
     val id: Int,
     val legend: Legend,
     val name: String,
