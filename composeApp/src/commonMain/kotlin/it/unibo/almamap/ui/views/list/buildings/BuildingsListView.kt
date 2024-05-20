@@ -23,15 +23,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.eygraber.compose.placeholder.PlaceholderHighlight
 import com.eygraber.compose.placeholder.material3.fade
 import com.eygraber.compose.placeholder.material3.placeholder
 import it.unibo.almamap.data.Building
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
+@OptIn(KoinExperimentalAPI::class)
 @Composable
-fun BuildingsListView(viewModel: BuildingsListViewModel = viewModel<BuildingsListViewModel>(), onClick: (Building) -> Unit) {
+fun BuildingsListView(viewModel: BuildingsListViewModel = koinViewModel<BuildingsListViewModel>(), onClick: (Building) -> Unit) {
     AnimatedVisibility(viewModel.loading) {
         LazyColumn {
             items(5) {

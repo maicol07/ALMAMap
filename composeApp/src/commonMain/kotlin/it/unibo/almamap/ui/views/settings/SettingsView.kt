@@ -22,7 +22,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.alorma.compose.settings.ui.SettingsGroup
 import com.alorma.compose.settings.ui.SettingsMenuLink
 import com.alorma.compose.settings.ui.SettingsSwitch
@@ -38,10 +37,12 @@ import it.unibo.almamap.ThemeOptions
 import it.unibo.almamap.platform
 import it.unibo.almamap.utils.Languages
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, KoinExperimentalAPI::class)
 @Composable
-fun SettingsView(viewModel: SettingsViewModel = viewModel<SettingsViewModel>()) {
+fun SettingsView(viewModel: SettingsViewModel = koinViewModel<SettingsViewModel>()) {
     val themeDialogState: UseCaseState = rememberUseCaseState()
     val languageDialogState: UseCaseState = rememberUseCaseState()
 

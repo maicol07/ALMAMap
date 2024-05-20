@@ -27,6 +27,8 @@ import it.unibo.almamap.ui.views.list.spaces.SpacesListView
 import it.unibo.almamap.ui.views.list.spaces.SpacesListViewModel
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.annotation.KoinExperimentalAPI
 
 private var activeTab by mutableStateOf(ListViewTabs.Buildings)
 
@@ -44,9 +46,13 @@ enum class ListViewTabs(
     Spaces(Res.string.list__spaces_title, { viewModel -> SpacesListView(viewModel) })
 }
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
+@OptIn(
+    ExperimentalMaterial3Api::class,
+    ExperimentalFoundationApi::class,
+    KoinExperimentalAPI::class
+)
 @Composable
-fun ListView(viewModel: SpacesListViewModel = viewModel<SpacesListViewModel>()) {
+fun ListView(viewModel: SpacesListViewModel = koinViewModel<SpacesListViewModel>()) {
     Column {
         PrimaryTabRow(selectedTabIndex = activeTab.ordinal) {
             for (tab in ListViewTabs.entries) {
