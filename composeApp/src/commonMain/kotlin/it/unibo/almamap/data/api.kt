@@ -67,3 +67,25 @@ data class SensorUnit(
     val code: String,
     val symbol: String
 )
+
+@Serializable
+data class SensorData(
+    val dayOfWeekAverage: List<List<Double>>,
+    val live: SensorLiveData
+)
+
+@Serializable
+data class SensorLiveData(
+    val index: Int,
+    val scale: List<SensorScale>,
+    val value: Float
+)
+
+@Serializable
+data class SensorScale(
+    val code: String,
+    val index: Int,
+    val label: String,
+    val lowerBound: Int?,
+    val upperBound: Int?
+)

@@ -10,10 +10,12 @@ composeImageLoader = "1.7.8"
 compose-settings = "2.2.0"
 composePlaceholderMaterial3 = "1.0.8"
 desugar_jdk_libs = "2.0.4"
+koalaplotCore = "0.6.0"
 koin-bom = "3.6.0-Beta4"
 koin-compose-viewmodel = "1.2.0-Beta4"
 kotlin = "2.0.0-RC3"
 kotlinx-serialization = "1.6.3"
+kotlinxDatetime = "0.6.0"
 ktor = "2.3.11"
 multiplatformSettings = "1.1.1"
 ksp = "2.0.0-RC3-1.0.20"
@@ -31,10 +33,12 @@ composeImageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref =
 composeSettings-ui = { group = "com.github.alorma.compose-settings", name = "ui-tiles", version.ref = "compose-settings" }
 composeSettings-ui-extended = { group = "com.github.alorma.compose-settings", name = "ui-tiles-extended", version.ref = "compose-settings" }
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+koalaplot-core = { module = "io.github.koalaplot:koalaplot-core", version.ref = "koalaplotCore" }
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
 koin-core = { module = "io.insert-koin:koin-core" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin-compose-viewmodel" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }

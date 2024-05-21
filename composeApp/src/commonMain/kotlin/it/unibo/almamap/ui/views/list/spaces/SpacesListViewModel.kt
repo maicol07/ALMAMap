@@ -15,6 +15,7 @@ import io.ktor.client.request.get
 import it.unibo.almamap.data.Building
 import it.unibo.almamap.data.BuildingFloor
 import it.unibo.almamap.data.Legend
+import it.unibo.almamap.data.SensorData
 import it.unibo.almamap.data.Space
 import it.unibo.almamap.data.SpaceFloor
 import it.unibo.almamap.ui.theme.AppListItemColors
@@ -54,6 +55,11 @@ class SpacesListViewModel: ViewModel(), KoinComponent {
         })
         println("Legend colors: $legendColors")
         loading = false
+    }
+
+    suspend fun loadSensorData(code: String): SensorData {
+        val response = httpClient.get("api/sensors/$code")
+        return response.body<SensorData>()
     }
 
     fun loadBuildings() = viewModelScope.launch {

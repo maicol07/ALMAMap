@@ -46,6 +46,8 @@ import com.eygraber.compose.placeholder.material3.placeholder
 import it.unibo.almamap.data.Legend
 import it.unibo.almamap.data.Space
 import it.unibo.almamap.ui.components.Select
+import it.unibo.almamap.ui.components.SpaceBottomSheet
+import it.unibo.almamap.ui.theme.AppListItemColors
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
@@ -84,7 +86,7 @@ fun SpacesListView(
         }
     }
 
-    val openedCategories = remember { mutableStateListOf<Legend>() }
+    val openedCategories = remember { mutableStateListOf(*viewModel.spaces.map { it.legend }.toTypedArray()) }
 
     AnimatedVisibility(!viewModel.loading && viewModel.spaces.isNotEmpty()) {
         LazyColumn {
@@ -169,15 +171,11 @@ fun SpacesListView(
 
         }
         if (viewModel.selectedSpace != null) {
-            ModalBottomSheet(onDismissRequest = { viewModel.selectedSpace = null }) {
-                Text(viewModel.selectedSpace!!.name)
-                viewModel.selectedSpace!!.description?.let { Text(it) }
-                Text("Posti: ${viewModel.selectedSpace!!.capacity ?: "N/A"}")
-                Text(viewModel.selectedSpace!!.sensors.joinToString { it.code })
-//                Text(viewModel.selectedSpace!!.floor?.number ?: "")
-                Text(viewModel.selectedSpace!!.floor?.buildingId.toString())
-//                Text(viewModel.selectedSpace!!.building?.name ?: "")
-            }
+            val spaceBuilding =
+                remember(viewModel.selectedSpace) { viewModel.buildings.find { building -> building.id == viewModel.selectedSpace!!.floor?.buildingId } }
+            val spaceFloor =
+                remember(viewModel.selectedSpace) { spaceBuilding?.floors?.find { floor -> floor.id == viewModel.selectedSpace!!.floor?.id } }
+            SpaceBottomSheet(viewModel.selectedSpace!!, spaceBuilding!!, viewModel, spaceFloor!!) { viewModel.selectedSpace = null }
         }
     }
 }

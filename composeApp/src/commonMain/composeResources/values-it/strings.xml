@@ -19,6 +19,34 @@
     <string name="list--no-buildings-found">Nessun edificio trovato</string>
     <string name="list--no-spaces-found">"Nessun spazio trovato</string>
 
+    <!-- Sensors -->
+    <string name="sensor--comfort">Comfort</string>
+    <string name="sensor--temperature">Temperatura</string>
+    <string name="sensor--humidity">Umidità</string>
+    <string name="sensor--sound">Suono</string>
+    <string name="sensor--pm25">PM2.5</string>
+    <string name="sensor--pm10">PM10</string>
+    <string name="sensor--carbon-monoxide">Monossido di carbonio</string>
+    <string name="sensor--nitrogen-dioxide">Diossido di azoto</string>
+    <string name="sensor--ozone">Ozono</string>
+
+    <!-- Weekdays -->
+    <string name="weekday--monday">Lunedì</string>
+    <string name="weekday--tuesday">Martedì</string>
+    <string name="weekday--wednesday">Mercoledì</string>
+    <string name="weekday--thursday">Giovedì</string>
+    <string name="weekday--friday">Venerdì</string>
+    <string name="weekday--saturday">Sabato</string>
+    <string name="weekday--sunday">Domenica</string>
+
+    <!-- Space -->
+    <string name="space--no-sensors">Questo spazio non contiene sensori</string>
+    <string name="space--hide-historical-data">Nascondi dati storici</string>
+    <string name="space--show-historical-data">Mostra dati storici</string>
+    <string name="space--average-values">Valori medi</string>
+    <string name="space--previous-day">Giorno precedente</string>
+    <string name="space--next-day">Giorno successivo</string>
+
     <!-- Settings -->
     <string name="settings--theme-title">Tema</string>
     <string name="settings--theme-subtitle">Scegli il tema per l'app</string>
