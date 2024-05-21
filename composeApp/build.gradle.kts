@@ -64,7 +64,6 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
-            implementation(libs.androidx.navigation.compose)
             implementation(compose.materialIconsExtended)
             implementation(libs.composeSettings.ui)
             implementation(libs.composeSettings.ui.extended)
