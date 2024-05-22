@@ -22,16 +22,13 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.rounded.ExpandLess
 import androidx.compose.material.icons.rounded.ExpandMore
-import androidx.compose.material.icons.rounded.Memory
 import androidx.compose.material.icons.rounded.WarningAmber
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
@@ -43,18 +40,17 @@ import androidx.compose.ui.unit.dp
 import com.eygraber.compose.placeholder.PlaceholderHighlight
 import com.eygraber.compose.placeholder.material3.fade
 import com.eygraber.compose.placeholder.material3.placeholder
-import it.unibo.almamap.data.Legend
-import it.unibo.almamap.data.Space
 import it.unibo.almamap.ui.components.Select
 import it.unibo.almamap.ui.components.SpaceBottomSheet
-import it.unibo.almamap.ui.theme.AppListItemColors
+import it.unibo.almamap.ui.components.spaces.SpaceListItem
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
 @OptIn(
-    ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class,
-    ExperimentalAnimationApi::class, KoinExperimentalAPI::class
+    ExperimentalFoundationApi::class,
+    ExperimentalAnimationApi::class,
+    KoinExperimentalAPI::class
 )
 @Composable
 fun SpacesListView(
@@ -178,31 +174,4 @@ fun SpacesListView(
             SpaceBottomSheet(viewModel.selectedSpace!!, spaceBuilding!!, viewModel, spaceFloor!!) { viewModel.selectedSpace = null }
         }
     }
-}
-
-@Composable
-private fun SpaceListItem(space: Space, modifier: Modifier, viewModel: SpacesListViewModel) {
-    val spaceBuilding =
-        remember(space) { viewModel.buildings.find { building -> building.id == space.floor?.buildingId } }
-    val spaceFloor =
-        remember(space) { spaceBuilding?.floors?.find { floor -> floor.id == space.floor?.id } }
-    val overline = remember {
-        spaceFloor?.let {
-            spaceBuilding?.let {
-                "${spaceBuilding.name} - ${spaceFloor.name}"
-            } ?: spaceFloor.name
-        } ?: spaceBuilding?.name
-    }
-    ListItem(
-        modifier = Modifier
-            .clickable { viewModel.selectedSpace = space }
-            .then(modifier),
-        headlineContent = { Text(space.name) },
-        supportingContent = space.description?.ifBlank { null }?.let { { Text(it) } },
-        overlineContent = overline?.let { { Text(it) } },
-        leadingContent = space.sensors.ifEmpty { null }?.let {
-            { Icon(Icons.Rounded.Memory, null) }
-        },
-        trailingContent = { Icon(Icons.AutoMirrored.Rounded.KeyboardArrowRight, null) },
-    )
 }
