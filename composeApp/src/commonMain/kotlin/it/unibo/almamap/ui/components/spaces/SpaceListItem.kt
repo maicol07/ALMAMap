@@ -15,24 +15,15 @@ import it.unibo.almamap.ui.views.list.spaces.SpacesListViewModel
 
 @Composable
 fun SpaceListItem(space: Space, modifier: Modifier = Modifier, viewModel: SpacesListViewModel) {
-    val spaceBuilding =
-        remember(space) { viewModel.buildings.find { building -> building.id == space.floor?.buildingId } }
-    val spaceFloor =
-        remember(space) { spaceBuilding?.floors?.find { floor -> floor.id == space.floor?.id } }
-    val overline = remember {
-        spaceFloor?.let {
-            spaceBuilding?.let {
-                "${spaceBuilding.name} - ${spaceFloor.name}"
-            } ?: spaceFloor.name
-        } ?: spaceBuilding?.name
-    }
+    val spaceBuilding = remember(space) { space.getBuilding(viewModel.buildings)!! }
+    val spaceFloor = remember(space) { space.getFloor(spaceBuilding)!! }
     ListItem(
         modifier = Modifier
             .clickable { viewModel.selectedSpace = space }
             .then(modifier),
         headlineContent = { Text(space.name) },
         supportingContent = space.description?.ifBlank { null }?.let { { Text(it) } },
-        overlineContent = overline?.let { { Text(it) } },
+        overlineContent = { Text("${spaceBuilding.name} - ${spaceFloor.name}") },
         leadingContent = space.sensors.ifEmpty { null }?.let {
             { Icon(Icons.Rounded.Memory, null) }
         },

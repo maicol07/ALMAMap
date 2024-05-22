@@ -167,11 +167,7 @@ fun SpacesListView(
 
         }
         if (viewModel.selectedSpace != null) {
-            val spaceBuilding =
-                remember(viewModel.selectedSpace) { viewModel.buildings.find { building -> building.id == viewModel.selectedSpace!!.floor?.buildingId } }
-            val spaceFloor =
-                remember(viewModel.selectedSpace) { spaceBuilding?.floors?.find { floor -> floor.id == viewModel.selectedSpace!!.floor?.id } }
-            SpaceBottomSheet(viewModel.selectedSpace!!, spaceBuilding!!, viewModel, spaceFloor!!) { viewModel.selectedSpace = null }
+            SpaceBottomSheet(viewModel.selectedSpace!!, viewModel) { viewModel.selectedSpace = null }
         }
     }
 }

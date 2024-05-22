@@ -41,7 +41,19 @@ data class Space(
     val legend: Legend,
     val name: String,
     val sensors: List<Sensor>
-)
+) {
+    fun getBuilding(buildings: List<Building>): Building? {
+        return buildings.find { it.id == floor?.buildingId }
+    }
+
+    fun getFloor(building: Building): BuildingFloor? {
+        return building.floors.find { it.id == floor?.id }
+    }
+
+    fun getFloor(buildings: List<Building>): BuildingFloor? {
+        return getBuilding(buildings)?.floors?.find { it.id == floor?.id }
+    }
+}
 
 @Serializable
 data class SpaceFloor(

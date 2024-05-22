@@ -50,7 +50,6 @@ import androidx.compose.ui.unit.dp
 import com.eygraber.compose.placeholder.PlaceholderHighlight
 import com.eygraber.compose.placeholder.material3.fade
 import com.eygraber.compose.placeholder.material3.placeholder
-import com.eygraber.compose.placeholder.placeholder
 import io.github.koalaplot.core.bar.DefaultVerticalBar
 import io.github.koalaplot.core.bar.VerticalBarPlot
 import io.github.koalaplot.core.util.ExperimentalKoalaPlotApi
@@ -58,8 +57,6 @@ import io.github.koalaplot.core.xygraph.XYGraph
 import io.github.koalaplot.core.xygraph.rememberFloatLinearAxisModel
 import io.github.koalaplot.core.xygraph.rememberIntLinearAxisModel
 import io.ktor.util.date.WeekDay
-import it.unibo.almamap.data.Building
-import it.unibo.almamap.data.BuildingFloor
 import it.unibo.almamap.data.SensorData
 import it.unibo.almamap.data.SensorTypes
 import it.unibo.almamap.data.Space
@@ -72,11 +69,11 @@ import kotlin.math.roundToInt
 @Composable
 fun SpaceBottomSheet(
     space: Space,
-    building: Building,
     viewModel: SpacesListViewModel,
-    floor: BuildingFloor,
     onDismissRequest: () -> Unit
 ) {
+    val building = remember(space) { space.getBuilding(viewModel.buildings)!! }
+    val floor = remember(space) { space.getFloor(building)!! }
     val sensorsData = remember { mutableStateMapOf<String, SensorData>() }
     var isLoading by remember { mutableStateOf(true) }
     LaunchedEffect(space.sensors) {

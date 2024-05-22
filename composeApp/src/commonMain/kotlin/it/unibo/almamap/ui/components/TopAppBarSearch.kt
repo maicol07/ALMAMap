@@ -24,12 +24,9 @@ fun TopAppBarSearch(viewModel: SpacesListViewModel = koinViewModel<SpacesListVie
     val filteredSpaces = remember(viewModel.spaces, query) {
         if (query.isEmpty()) viewModel.spaces else
             viewModel.spaces.filter {
-                val spaceBuilding =
-                    viewModel.buildings.find { building -> building.id == it.floor?.buildingId }
-                val spaceFloor = spaceBuilding?.floors?.find { floor -> floor.id == it.floor?.id }
                 it.name.contains(query, ignoreCase = true) ||
-                        spaceBuilding?.name?.contains(query, ignoreCase = true) ?: false ||
-                        spaceFloor?.name?.contains(query, ignoreCase = true) ?: false
+                        it.getBuilding(viewModel.buildings)?.name?.contains(query, ignoreCase = true) ?: false ||
+                        it.getFloor(viewModel.buildings)?.name?.contains(query, ignoreCase = true) ?: false
             }
     }
 
@@ -50,10 +47,6 @@ fun TopAppBarSearch(viewModel: SpacesListViewModel = koinViewModel<SpacesListVie
     }
 
     if (viewModel.selectedSpace != null) {
-        val spaceBuilding =
-            remember(viewModel.selectedSpace) { viewModel.buildings.find { building -> building.id == viewModel.selectedSpace!!.floor?.buildingId } }
-        val spaceFloor =
-            remember(viewModel.selectedSpace) { spaceBuilding?.floors?.find { floor -> floor.id == viewModel.selectedSpace!!.floor?.id } }
-        SpaceBottomSheet(viewModel.selectedSpace!!, spaceBuilding!!, viewModel, spaceFloor!!) { viewModel.selectedSpace = null }
+        SpaceBottomSheet(viewModel.selectedSpace!!, viewModel) { viewModel.selectedSpace = null }
     }
 }
