@@ -94,6 +94,7 @@ fun SpaceBottomSheet(
             Text("${building.name} - ${floor.name}", style = MaterialTheme.typography.titleSmall)
             space.description?.let { Text(it) }
 //        Text("Posti: ${space.capacity ?: "N/A"}")
+            Spacer(Modifier.height(16.dp))
             if (space.sensors.isEmpty()) {
                 Text(stringResource(Res.string.space__no_sensors))
             } else {
