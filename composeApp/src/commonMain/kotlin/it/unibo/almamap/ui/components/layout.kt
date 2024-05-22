@@ -26,7 +26,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import it.unibo.almamap.AppBarSearchBar
 import it.unibo.almamap.AppRoutes
 import it.unibo.almamap.NavBarItems
 import it.unibo.almamap.utils.TopAppBarState
@@ -42,8 +41,7 @@ fun AppScaffold(navController: NavController, content: @Composable (PaddingValue
             Column(verticalArrangement = Arrangement.spacedBy((-1).dp)) {
                 AnimatedVisibility(TopAppBarState.Search.visible) {
                     TopAppBarSurface {
-                        var active by remember { mutableStateOf(false) }
-                        AppBarSearchBar(active = active, onActiveChange = { active = it }) {}
+                        TopAppBarSearch()
                     }
                 }
                 AnimatedVisibility(!TopAppBarState.Search.visible) {

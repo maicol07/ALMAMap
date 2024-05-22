@@ -1,4 +1,4 @@
-package it.unibo.almamap
+package it.unibo.almamap.ui.components
 
 import almamap.composeapp.generated.resources.Res
 import almamap.composeapp.generated.resources.appbar__search
@@ -32,7 +32,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun AppBarSearchBar(
     modifier: Modifier = Modifier,
-    text: String = "",
+    query: String = "",
     active: Boolean = false,
     onQueryChange: (String) -> Unit = {},
     onActiveChange: (Boolean) -> Unit = {},
@@ -51,7 +51,7 @@ fun AppBarSearchBar(
                     .fillMaxWidth()
                     .animateContentSize(spring(stiffness = Spring.StiffnessHigh))
             },
-            query = text,
+            query = query,
             onQueryChange = onQueryChange,
             onSearch = onSearch,
             active = active,
@@ -76,7 +76,7 @@ fun AppBarSearchBar(
                     )
                 }
             },
-            trailingIcon = if (active && text.isNotEmpty()) {
+            trailingIcon = if (active && query.isNotEmpty()) {
                 {
                     IconButton(
                         onClick = {
