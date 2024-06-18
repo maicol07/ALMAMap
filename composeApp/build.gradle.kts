@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.ktorfit)
 }
 
 kotlin {
@@ -73,6 +74,8 @@ kotlin {
             implementation(libs.koalaplot.core)
             // Kotlinx DateTime
             implementation(libs.kotlinx.datetime)
+            implementation(libs.ktorfit)
+            implementation(libs.ktor.client.logging)
         }
 
         commonTest.dependencies {

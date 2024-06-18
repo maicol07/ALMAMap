@@ -9,9 +9,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.request.get
+import it.unibo.almamap.data.AlmaClass
 import it.unibo.almamap.data.Building
 import it.unibo.almamap.data.BuildingFloor
 import it.unibo.almamap.data.Legend
@@ -24,7 +22,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 class SpacesListViewModel: ViewModel(), KoinComponent {
-    private val httpClient: HttpClient by inject()
+    private val api: AlmaClass by inject()
     val buildings: SnapshotStateList<Building> = mutableStateListOf()
     val spaces: SnapshotStateList<Space> = mutableStateListOf()
     var loading by mutableStateOf(true)
@@ -43,8 +41,7 @@ class SpacesListViewModel: ViewModel(), KoinComponent {
     fun loadSpaces() = viewModelScope.launch {
         loading = true
         spaces.clear()
-        val response = httpClient.get("api/spaces")
-        spaces.addAll(response.body<List<Space>>().filterNot { it.legend.code in listOf("buildings", "kiosks") })
+        spaces.addAll(api.getSpaces().filterNot { it.legend.code in listOf("buildings", "kiosks") })
 
         // Calculate colors for each legend
         var colors = AppListItemColors.entries.iterator()
@@ -53,20 +50,17 @@ class SpacesListViewModel: ViewModel(), KoinComponent {
             if (!colors.hasNext()) colors = AppListItemColors.entries.iterator()
             legend to colors.next()
         })
-        println("Legend colors: $legendColors")
         loading = false
     }
 
     suspend fun loadSensorData(code: String): SensorData {
-        val response = httpClient.get("api/sensors/$code")
-        return response.body<SensorData>()
+        return api.getSensor(code)
     }
 
     fun loadBuildings() = viewModelScope.launch {
         loading = true
         buildings.clear()
-        val response = httpClient.get("api/buildings")
-        buildings.addAll(response.body<List<Building>>())
+        buildings.addAll(api.getBuildings())
         loading = false
     }
 
