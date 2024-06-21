@@ -9,6 +9,7 @@ composeImageLoader = "1.8.1"
 compose-settings = "2.4.0"
 composePlaceholderMaterial3 = "1.0.8"
 desugar_jdk_libs = "2.0.4"
+kachetor = "1.0.0"
 koalaplotCore = "0.6.1"
 koin-bom = "3.6.0-Beta4"
 koin-compose-viewmodel = "1.2.0-Beta4"
@@ -32,6 +33,7 @@ composeImageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref =
 composeSettings-ui = { group = "com.github.alorma.compose-settings", name = "ui-tiles", version.ref = "compose-settings" }
 composeSettings-ui-extended = { group = "com.github.alorma.compose-settings", name = "ui-tiles-extended", version.ref = "compose-settings" }
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+kachetor = { module = "com.vipulasri.kachetor:kachetor", version.ref = "kachetor" }
 koalaplot-core = { module = "io.github.koalaplot:koalaplot-core", version.ref = "koalaplotCore" }
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
 koin-core = { module = "io.insert-koin:koin-core" }

@@ -1,7 +1,9 @@
 package it.unibo.almamap.di
 
+import com.vipulasri.kachetor.KachetorStorage
 import de.jensklingenberg.ktorfit.Ktorfit
 import io.ktor.client.HttpClient
+import io.ktor.client.plugins.cache.HttpCache
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
@@ -30,6 +32,9 @@ val httpModule = module {
                         }
                     }
                     level = LogLevel.ALL
+                }
+                install(HttpCache) {
+                    publicStorage(KachetorStorage(10 * 1024 * 1024))
                 }
             })
             .build()

@@ -76,6 +76,7 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.ktorfit)
             implementation(libs.ktor.client.logging)
+            implementation(libs.kachetor)
         }
 
         commonTest.dependencies {
