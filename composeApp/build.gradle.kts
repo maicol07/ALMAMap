@@ -74,6 +74,7 @@ kotlin {
             implementation(libs.koalaplot.core)
             // Kotlinx DateTime
             implementation(libs.kotlinx.datetime)
+            api(libs.compose.webview.multiplatform)
             implementation(libs.ktorfit)
             implementation(libs.ktor.client.logging)
             implementation(libs.kachetor)

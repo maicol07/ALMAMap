@@ -1,5 +1,6 @@
 package it.unibo.almamap
 
+import androidx.compose.runtime.Composable
 import platform.Foundation.NSUserDefaults
 import platform.UIKit.UIDevice
 
@@ -12,4 +13,11 @@ actual val platform: Platform = object : Platform {
 actual fun setDeviceLanguage(language: String) {
     NSUserDefaults.standardUserDefaults().setObject(listOf(language), forKey = "AppleLanguages")
     NSUserDefaults.standardUserDefaults().synchronize()
+}
+
+@Composable
+actual fun BackGestureHandler(
+    onBack: () -> Unit
+) {
+    // Not implemented
 }

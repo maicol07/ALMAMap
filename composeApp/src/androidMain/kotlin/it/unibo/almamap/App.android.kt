@@ -2,12 +2,13 @@ package it.unibo.almamap
 
 import android.app.Application
 import android.content.Intent
+import android.content.pm.ApplicationInfo
 import android.net.Uri
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import org.koin.core.context.GlobalContext.stopKoin
 
 class AndroidApp : Application() {
     companion object {
@@ -23,6 +24,11 @@ class AndroidApp : Application() {
 class AppActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if ((applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
+            WebView.setWebContentsDebuggingEnabled(true)
+        }
+
         enableEdgeToEdge()
         setContent { App() }
     }

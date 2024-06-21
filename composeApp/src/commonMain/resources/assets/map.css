@@ -1,0 +1,102 @@
+#content {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+[id^="Aule"] {
+    fill: red !important;
+}
+[id^="Servizi"] {
+    fill: rgb(186, 104, 200) !important;
+}
+[id^="Bagni"] {
+    fill: rgb(77, 208, 225) !important;
+}
+[id^="Studi"] {
+    fill: rgb(33, 150, 243) !important;
+}
+[id^="Laboratori"] {
+    fill: rgb(255, 183, 77) !important;
+}
+
+:root {
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x: ;
+    --tw-pan-y: ;
+    --tw-pinch-zoom: ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-gradient-from-position: ;
+    --tw-gradient-via-position: ;
+    --tw-gradient-to-position: ;
+    --tw-ordinal: ;
+    --tw-slashed-zero: ;
+    --tw-numeric-figure: ;
+    --tw-numeric-spacing: ;
+    --tw-numeric-fraction: ;
+    --tw-ring-inset: ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(59,130,246,.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+}
+
+.marker {
+    --tw-translate-x: calc(-50% + 1px);
+    --tw-translate-y: calc(-100% - 3px);
+    --tw-bg-opacity: 1;
+    --tw-shadow: 0 0 2px 0 #fff;
+    --tw-shadow-colored: 0 0 2px 0 var(--tw-shadow-color);
+    align-items: center;
+    background-color: rgb(69 90 100 / var(--tw-bg-opacity));
+    border-radius: 9999px;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    display: flex;
+    width: 34px;
+    height: 34px;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skew(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+
+}
+.marker, .marker:before {
+    position: absolute;
+}
+
+.marker .icon {
+    --tw-bg-opacity: 1;
+    --tw-text-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    color: rgb(69 90 100 / var(--tw-text-opacity));
+    padding: 2px;
+    border-radius: 9999px;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.marker:before {
+    --tw-translate-x: -50%;
+    border: 7px solid transparent;
+    border-top: 10px solid #455a64;
+    bottom: -.75rem;
+    content: "";
+    height: 0;
+    width: 0;
+    z-index: -1;
+}
+
+.icon {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}

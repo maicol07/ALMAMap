@@ -1,11 +1,10 @@
 package it.unibo.almamap
 
 import android.os.Build
+import androidx.activity.compose.BackHandler
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.runtime.Composable
 import androidx.core.os.LocaleListCompat
-import androidx.lifecycle.ViewModel
-import kotlin.reflect.KClass
 
 actual val platform: Platform = object : Platform {
     override val type: PlatformType = PlatformType.ANDROID
@@ -15,4 +14,11 @@ actual val platform: Platform = object : Platform {
 
 actual fun setDeviceLanguage(language: String) {
     AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(language))
+}
+
+@Composable
+actual fun BackGestureHandler(
+    onBack: () -> Unit
+) {
+    BackHandler(onBack = onBack)
 }

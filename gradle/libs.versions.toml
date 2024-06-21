@@ -8,6 +8,7 @@ composeDialogs = "2.0.0-SNAPSHOT"
 composeImageLoader = "1.8.1"
 compose-settings = "2.4.0"
 composePlaceholderMaterial3 = "1.0.8"
+composeWebviewMultiplatform = "1.9.12"
 desugar_jdk_libs = "2.0.4"
 kachetor = "1.0.0"
 koalaplotCore = "0.6.1"
@@ -27,6 +28,7 @@ androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 androidx-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "androidx-uiTest" }
 androidx-testManifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "androidx-uiTest" }
 compose-placeholder-material3 = { module = "com.eygraber:compose-placeholder-material3", version.ref = "composePlaceholderMaterial3" }
+compose-webview-multiplatform = { module = "io.github.kevinnzou:compose-webview-multiplatform", version.ref = "composeWebviewMultiplatform" }
 composeDialogs-core = { module = "dev.datlag.sheets-compose-dialogs:core", version.ref = "composeDialogs" }
 composeDialogs-list = { module = "dev.datlag.sheets-compose-dialogs:list", version.ref = "composeDialogs" }
 composeImageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "composeImageLoader" }

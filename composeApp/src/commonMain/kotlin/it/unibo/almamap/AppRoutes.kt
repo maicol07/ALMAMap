@@ -1,7 +1,6 @@
 package it.unibo.almamap
 
 import almamap.composeapp.generated.resources.Res
-import almamap.composeapp.generated.resources.campus
 import almamap.composeapp.generated.resources.navbar__list
 import almamap.composeapp.generated.resources.navbar__map
 import almamap.composeapp.generated.resources.navbar__settings
@@ -17,7 +16,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
 import it.unibo.almamap.ui.views.list.ListView
-import it.unibo.almamap.ui.views.list.buildings.BuildingsListView
+import it.unibo.almamap.ui.views.map.MapView
 import it.unibo.almamap.ui.views.settings.SettingsView
 import org.jetbrains.compose.resources.StringResource
 
@@ -42,9 +41,7 @@ import org.jetbrains.compose.resources.StringResource
  * enum values that represent the screens in the app
  */
 enum class AppRoutes(val title: StringResource? = null, val content: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit = { }) {
-    Map(title = Res.string.navbar__map, content = { androidx.compose.foundation.Image(org.jetbrains.compose.resources.painterResource(
-        Res.drawable.campus
-    ), "") }),
+    Map(title = Res.string.navbar__map, content = { MapView() }),
     List(title = Res.string.navbar__list, content = { ListView() }),
     Settings(title = Res.string.navbar__settings, content = { SettingsView() })
 }
