@@ -118,6 +118,10 @@ android {
     sourceSets["main"].apply {
         manifest.srcFile("src/androidMain/AndroidManifest.xml")
         res.srcDirs("src/androidMain/res")
+        resources.srcDirs("src/commonMain/resources")
+    }
+    sourceSets["debug"].apply {
+        res.srcDirs("src/androidDebug/res")
     }
     //https://developer.android.com/studio/test/gradle-managed-devices
     @Suppress("UnstableApiUsage")
@@ -142,6 +146,21 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
             merges += "values**"
+        }
+    }
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            // Development purposes only
+            signingConfig = signingConfigs.getByName("debug")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        getByName("debug") {
+            applicationIdSuffix = ".dev"
         }
     }
 }
