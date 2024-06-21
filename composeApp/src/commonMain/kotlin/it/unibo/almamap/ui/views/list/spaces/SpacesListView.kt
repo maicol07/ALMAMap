@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.dp
 import com.eygraber.compose.placeholder.PlaceholderHighlight
 import com.eygraber.compose.placeholder.material3.fade
 import com.eygraber.compose.placeholder.material3.placeholder
-import it.unibo.almamap.ui.components.Select
+import it.unibo.almamap.ui.components.FilledSelect
 import it.unibo.almamap.ui.components.SpaceBottomSheet
 import it.unibo.almamap.ui.components.spaces.SpaceListItem
 import org.jetbrains.compose.resources.stringResource
@@ -92,7 +92,7 @@ fun SpacesListView(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     val allBuildingsString = stringResource(Res.string.list__all_buildings)
-                    Select(
+                    FilledSelect(
                         modifier = Modifier.weight(1f),
                         selectedValue = viewModel.selectedBuilding?.name ?: allBuildingsString,
                         options = listOf(allBuildingsString) + viewModel.buildings.map { it.name },
@@ -100,14 +100,14 @@ fun SpacesListView(
                         onValueChangedEvent = {
                             if (it == allBuildingsString) {
                                 viewModel.selectedBuilding = null
-                                return@Select
+                                return@FilledSelect
                             }
                             viewModel.selectedBuilding =
                                 viewModel.buildings.find { building -> building.name == it }
                         }
                     )
                     val allFloorsString = stringResource(Res.string.list__all_floors)
-                    Select(
+                    FilledSelect(
                         modifier = Modifier.weight(1f),
                         selectedValue = viewModel.selectedFloor?.name ?: allFloorsString,
                         options = listOf(allFloorsString) + (viewModel.selectedBuilding?.floors?.map { it.name }
@@ -117,7 +117,7 @@ fun SpacesListView(
                         onValueChangedEvent = {
                             if (it == allFloorsString) {
                                 viewModel.selectedFloor = null
-                                return@Select
+                                return@FilledSelect
                             }
                             viewModel.selectedFloor =
                                 viewModel.selectedBuilding!!.floors.find { floor -> floor.name == it }
