@@ -1,4 +1,4 @@
-package it.unibo.almamap.ui.components
+package it.unibo.almamap.ui.components.spaces
 
 import almamap.composeapp.generated.resources.Res
 import almamap.composeapp.generated.resources.space__average_values

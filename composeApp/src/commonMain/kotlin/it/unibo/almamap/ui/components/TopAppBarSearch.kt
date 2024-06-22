@@ -10,6 +10,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import it.unibo.almamap.ui.components.spaces.SpaceBottomSheet
 import it.unibo.almamap.ui.components.spaces.SpaceListItem
 import it.unibo.almamap.ui.views.list.spaces.SpacesListViewModel
 import org.koin.compose.viewmodel.koinViewModel

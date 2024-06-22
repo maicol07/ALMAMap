@@ -30,7 +30,7 @@ import com.multiplatform.webview.web.rememberWebViewNavigator
 import com.multiplatform.webview.web.rememberWebViewStateWithHTMLFile
 import it.unibo.almamap.BackGestureHandler
 import it.unibo.almamap.ui.components.IconButtonSelect
-import it.unibo.almamap.ui.components.SpaceBottomSheet
+import it.unibo.almamap.ui.components.spaces.SpaceBottomSheet
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
