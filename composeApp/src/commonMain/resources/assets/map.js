@@ -88,4 +88,19 @@ function clearMarkers() {
 }
 window.clearMarkers = clearMarkers;
 
+screen.orientation.addEventListener("change", () => {
+    console.log('Screen orientation changed. Updating markers position...');
+    // Update markers position
+    const markers = document.querySelectorAll('.marker');
+    for (const marker of markers) {
+        const id = marker.id.split('-')[0];
+        const element = document.querySelector(`#${id}`);
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            marker.style.top = rect.top + (rect.height / 2) + 'px';
+            marker.style.left = rect.left + (rect.width / 2) + 'px';
+        }
+    }
+});
+
 console.log('Map script loaded');
