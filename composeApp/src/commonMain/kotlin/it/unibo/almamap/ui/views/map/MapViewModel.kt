@@ -40,6 +40,7 @@ class MapViewModel : ViewModel(), KoinComponent {
     var selectedFloor by mutableStateOf<BuildingFloor?>(null)
     var selectedSpace by mutableStateOf<Space?>(null)
     var mapReady by mutableStateOf(false)
+    var spacesListSheetOpened by mutableStateOf(false)
 
     val currentMaps: List<String>
         get(): List<String> = when (phase) {
@@ -101,6 +102,10 @@ class MapViewModel : ViewModel(), KoinComponent {
 
             null -> {}
         }
+    }
+
+    fun onListFabClick() {
+        spacesListSheetOpened = true
     }
 
     fun drawMap(navigator: WebViewNavigator) = viewModelScope.launch {

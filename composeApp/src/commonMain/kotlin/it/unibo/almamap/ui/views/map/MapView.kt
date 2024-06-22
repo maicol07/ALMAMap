@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowBack
+import androidx.compose.material.icons.automirrored.rounded.List
 import androidx.compose.material.icons.outlined.Layers
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -30,6 +31,7 @@ import com.multiplatform.webview.web.rememberWebViewNavigator
 import com.multiplatform.webview.web.rememberWebViewStateWithHTMLFile
 import it.unibo.almamap.BackGestureHandler
 import it.unibo.almamap.ui.components.IconButtonSelect
+import it.unibo.almamap.ui.components.layout.FloatingActionButtonState
 import it.unibo.almamap.ui.components.spaces.SpaceBottomSheet
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
@@ -37,6 +39,12 @@ import org.koin.core.annotation.KoinExperimentalAPI
 @OptIn(KoinExperimentalAPI::class)
 @Composable
 fun MapView(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
+    LaunchedEffect(viewModel.selectedBuilding, viewModel.selectedFloor) {
+        FloatingActionButtonState.visible = viewModel.selectedBuilding != null
+        FloatingActionButtonState.onClick = { viewModel.onListFabClick() }
+        FloatingActionButtonState.icon = Icons.AutoMirrored.Rounded.List
+        FloatingActionButtonState.contentDescription = "List all spaces in the building"
+    }
     Box(modifier = Modifier.fillMaxSize()) {
         val webViewState = rememberWebViewStateWithHTMLFile("map.html").apply {
             webSettings.apply {
@@ -126,5 +134,8 @@ fun MapView(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
         SpaceBottomSheet(viewModel.selectedSpace!!, viewModel.spacesListViewModel) {
             viewModel.selectedSpace = null
         }
+    }
+    if (viewModel.spacesListSheetOpened) {
+        MapSpacesBottomSheet(onDismissRequest = { viewModel.spacesListSheetOpened = false })
     }
 }
