@@ -1,28 +1,11 @@
 package it.unibo.almamap.utils
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import com.russhwolf.settings.ObservableSettings
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.get
 import com.russhwolf.settings.set
-
-object TopAppBarState {
-    object Search {
-        var searchIcon by mutableStateOf(Icons.Filled.Search)
-        var visible by mutableStateOf(true)
-    }
-
-
-    fun restoreDefaults() {
-        Search.searchIcon = Icons.Filled.Search
-        Search.visible = true
-    }
-}
 
 /**
  * Creates a [MutableState] that reads and writes to the settings with the given [key].

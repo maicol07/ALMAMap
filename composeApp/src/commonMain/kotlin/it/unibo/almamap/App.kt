@@ -10,9 +10,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import it.unibo.almamap.di.appModules
-import it.unibo.almamap.ui.components.AppScaffold
+import it.unibo.almamap.ui.components.layout.AppScaffold
+import it.unibo.almamap.ui.components.layout.FloatingActionButtonState
+import it.unibo.almamap.ui.components.layout.TopAppBarState
 import it.unibo.almamap.ui.theme.AppTheme
-import it.unibo.almamap.utils.TopAppBarState
 import org.koin.compose.KoinContext
 import org.koin.core.context.startKoin
 import org.koin.mp.KoinPlatformTools
@@ -34,6 +35,7 @@ internal fun App() {
                     val currentRoute = currentDestination.route
                     if (previousRoute != currentRoute) {
                         TopAppBarState.restoreDefaults()
+                        FloatingActionButtonState.restoreDefaults()
                     }
                 }
             }
