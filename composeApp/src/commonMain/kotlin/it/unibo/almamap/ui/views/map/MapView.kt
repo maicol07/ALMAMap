@@ -1,5 +1,10 @@
 package it.unibo.almamap.ui.views.map
 
+import almamap.composeapp.generated.resources.Res
+import almamap.composeapp.generated.resources.back
+import almamap.composeapp.generated.resources.map__campus_title
+import almamap.composeapp.generated.resources.map__list_all_spaces_in_building_floor
+import almamap.composeapp.generated.resources.map__select_floor_title
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -33,6 +38,8 @@ import it.unibo.almamap.BackGestureHandler
 import it.unibo.almamap.ui.components.IconButtonSelect
 import it.unibo.almamap.ui.components.layout.FloatingActionButtonState
 import it.unibo.almamap.ui.components.spaces.SpaceBottomSheet
+import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
@@ -43,7 +50,7 @@ fun MapView(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
         FloatingActionButtonState.visible = viewModel.selectedBuilding != null
         FloatingActionButtonState.onClick = { viewModel.onListFabClick() }
         FloatingActionButtonState.icon = Icons.AutoMirrored.Rounded.List
-        FloatingActionButtonState.contentDescription = "List all spaces in the building"
+        FloatingActionButtonState.contentDescription = getString(Res.string.map__list_all_spaces_in_building_floor)
     }
     Box(modifier = Modifier.fillMaxSize()) {
         val webViewState = rememberWebViewStateWithHTMLFile("map.html").apply {
@@ -86,7 +93,7 @@ fun MapView(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
                 leadingContent = {
                     AnimatedVisibility(viewModel.phase != MapViewModel.Phase.Campus && viewModel.phase != null) {
                         IconButton(onClick = { viewModel.onBack() }) {
-                            Icon(Icons.AutoMirrored.Rounded.ArrowBack, contentDescription = "Back")
+                            Icon(Icons.AutoMirrored.Rounded.ArrowBack, contentDescription = stringResource(Res.string.back))
                         }
                         BackGestureHandler { viewModel.onBack() }
                     }
@@ -95,7 +102,7 @@ fun MapView(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
                 headlineContent = {
                     Text(
                         when (viewModel.phase) {
-                            MapViewModel.Phase.Campus -> "Campus"
+                            MapViewModel.Phase.Campus -> stringResource(Res.string.map__campus_title)
                             MapViewModel.Phase.Floor -> viewModel.selectedFloor?.name ?: ""
                             null -> ""
                         },
@@ -112,7 +119,7 @@ fun MapView(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
                                 viewModel.drawMap(webViewNavigator)
                             },
                             icon = Icons.Outlined.Layers,
-                            contentDescription = "Select floor"
+                            contentDescription = stringResource(Res.string.map__select_floor_title)
                         )
                     }
                 }
