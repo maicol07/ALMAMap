@@ -16,7 +16,7 @@
     <string name="list__floors_title">Piani</string>
     <string name="list__all_floors">Tutti i piani</string>
     <string name="list__no_buildings_found">Nessun edificio trovato</string>
-    <string name="list__no_spaces_found">"Nessun spazio trovato</string>
+    <string name="list__no_spaces_found">Nessuno spazio trovato</string>
 
     <!-- Sensors -->
     <string name="sensor__comfort">Comfort</string>

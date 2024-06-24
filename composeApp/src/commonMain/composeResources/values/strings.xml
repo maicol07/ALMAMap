@@ -23,7 +23,7 @@
     <string name="list__floors_title">Floors</string>
     <string name="list__all_floors">All Floors</string>
     <string name="list__no_buildings_found">No buildings found</string>
-    <string name="list__no_spaces_found">"No spaces found</string>
+    <string name="list__no_spaces_found">No spaces found</string>
 
     <!-- Sensors -->
     <string name="sensor__comfort">Comfort</string>
