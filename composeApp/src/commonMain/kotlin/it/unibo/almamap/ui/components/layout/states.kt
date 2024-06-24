@@ -27,7 +27,7 @@ object FloatingActionButtonState {
     var contentDescription by mutableStateOf<String?>(null)
 
     fun restoreDefaults() {
-        visible = true
+        visible = false
         onClick = {}
         icon = null
         contentDescription = null
