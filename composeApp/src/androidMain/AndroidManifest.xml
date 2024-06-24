@@ -6,7 +6,7 @@
 
     <application
         android:name=".AndroidApp"
-        android:icon="@android:drawable/ic_menu_compass"
+        android:icon="@mipmap/ic_launcher"
         android:label="ALMAMap"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:localeConfig="@xml/locales_config"
