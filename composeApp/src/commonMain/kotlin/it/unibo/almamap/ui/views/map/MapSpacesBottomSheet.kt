@@ -1,6 +1,7 @@
 package it.unibo.almamap.ui.views.map
 
 import almamap.composeapp.generated.resources.Res
+import almamap.composeapp.generated.resources.list__no_spaces_found
 import almamap.composeapp.generated.resources.map_spaces_in_building_floor
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -26,6 +27,12 @@ fun MapSpacesBottomSheet(onDismissRequest: () -> Unit, viewModel: MapViewModel =
             modifier = Modifier.padding(16.dp)
         )
         val spaces = viewModel.spacesListViewModel.filterSpaces(viewModel.selectedBuilding!!, viewModel.selectedFloor)
+        if (spaces.isEmpty()) {
+            Text(
+                stringResource(Res.string.list__no_spaces_found),
+                modifier = Modifier.padding(16.dp)
+            )
+        }
         for (space in spaces) {
             SpaceListItem(
                 space,
