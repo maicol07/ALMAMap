@@ -47,17 +47,6 @@
     <string name="space__next_day">Giorno successivo</string>
 
     <!-- Settings -->
-    <string name="settings--theme-title">Tema</string>
-    <string name="settings--theme-subtitle">Scegli il tema per l'app</string>
-    <string name="settings--theme-option-title">Tema</string>
-    <string name="settings--theme-option-light">Chiaro</string>
-    <string name="settings--theme-option-dark">Scuro</string>
-    <string name="settings--theme-option-system">Segui il sistema</string>
-    <string name="settings--device-colors-title">Usa i colori del dispositivo</string>
-    <string name="settings--device-colors-subtitle">Usa i colori del sistema per l'app</string>
-    <string name="settings--language-title">Lingua</string>
-    <string name="settings--language-subtitle">Scegli la lingua per l'app</string>
-    <string name="settings--language-option-title">Lingua</string>
     <string name="settings__theme_title">Tema</string>
     <string name="settings__theme_subtitle">Scegli il tema per l'app</string>
     <string name="settings__theme_option_title">Tema</string>
@@ -69,4 +58,10 @@
     <string name="settings__language_title">Lingua</string>
     <string name="settings__language_subtitle">Scegli la lingua per l'app</string>
     <string name="settings__language_option_title">Lingua</string>
+
+    <!-- Map -->
+    <string name="map__list_all_spaces_in_building_floor">Elenca tutti gli spazi in questo edificio e piano</string>
+    <string name="map__campus_title">Campus</string>
+    <string name="map__select_floor_title">Seleziona piano</string>
+    <string name="map_spaces_in_building_floor">Spazi in %1$s</string>
 </resources>

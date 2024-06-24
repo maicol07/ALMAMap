@@ -4,16 +4,17 @@
     <string name="close">Close</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="appbar--search">Search Locations...</string>
-    <string name="navbar--map">Map</string>
-    <string name="navbar--list">List</string>
-    <string name="navbar--settings">Settings</string>
-    <string name="loading">Loading...</string>
     <string name="appbar__search">Search Locations…</string>
     <string name="navbar__map">Map</string>
     <string name="navbar__list">List</string>
     <string name="navbar__settings">Settings</string>
     <string name="loading">Loading…</string>
+
+    <!-- Map -->
+    <string name="map__list_all_spaces_in_building_floor">List all spaces in this building and floor</string>
+    <string name="map__campus_title">Campus</string>
+    <string name="map__select_floor_title">Select floor</string>
+    <string name="map_spaces_in_building_floor">Spaces in %1$s</string>
 
     <!-- List -->
     <string name="list__buildings_title">Buildings</string>
