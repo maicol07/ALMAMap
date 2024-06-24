@@ -22,8 +22,12 @@ class AndroidApp : Application() {
 }
 
 class AppActivity : AppCompatActivity() {
+    companion object {
+        lateinit var INSTANCE: AppActivity
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        INSTANCE = this
 
         if ((applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE) != 0) {
             WebView.setWebContentsDebuggingEnabled(true)

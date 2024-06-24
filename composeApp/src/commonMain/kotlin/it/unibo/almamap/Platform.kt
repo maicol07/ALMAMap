@@ -1,6 +1,7 @@
 package it.unibo.almamap
 
 import androidx.compose.runtime.Composable
+import kotlinx.coroutines.flow.Flow
 
 enum class PlatformType {
     ANDROID,
@@ -17,7 +18,10 @@ interface Platform {
 
 expect val platform: Platform
 
-expect fun setDeviceLanguage(language: String): Unit
+expect fun setDeviceLanguage(language: String)
+expect fun getAppLanguage(): Flow<String>
+
+expect fun openAppLanguageSettings()
 
 @Composable
 expect fun BackGestureHandler(

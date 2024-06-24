@@ -9,6 +9,7 @@
         android:icon="@android:drawable/ic_menu_compass"
         android:label="ALMAMap"
         android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:localeConfig="@xml/locales_config"
         android:enableOnBackInvokedCallback="true"
         android:usesCleartextTraffic="true"
         tools:targetApi="UPSIDE_DOWN_CAKE">
