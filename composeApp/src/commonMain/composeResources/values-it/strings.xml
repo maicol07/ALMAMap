@@ -1,51 +1,50 @@
 <resources>
-    <string name="app_name">ALMAMap</string>
     <string name="back">Indietro</string>
     <string name="close">Chiudi</string>
     <string name="ok">OK</string>
     <string name="cancel">Annulla</string>
-    <string name="appbar--search">Cerca posizioni...</string>
-    <string name="navbar--map">Mappa</string>
-    <string name="navbar--list">Elenco</string>
-    <string name="navbar--settings">Impostazioni</string>
-    <string name="loading">Caricamento...</string>
+    <string name="appbar__search">Cerca posizioni…</string>
+    <string name="navbar__map">Mappa</string>
+    <string name="navbar__list">Elenco</string>
+    <string name="navbar__settings">Impostazioni</string>
+    <string name="loading">Caricamento…</string>
 
     <!-- List -->
-    <string name="list--buildings-title">Edifici</string>
-    <string name="list--all-buildings">Tutti gli edifici</string>
-    <string name="list--spaces-title">Spazi</string>
-    <string name="list--floors-title">Piani</string>
-    <string name="list--all-floors">Tutti i piani</string>
-    <string name="list--no-buildings-found">Nessun edificio trovato</string>
-    <string name="list--no-spaces-found">"Nessun spazio trovato</string>
+    <string name="list__buildings_title">Edifici</string>
+    <string name="list__all_buildings">Tutti gli edifici</string>
+    <string name="list__spaces_title">Spazi</string>
+    <string name="list__floors_title">Piani</string>
+    <string name="list__all_floors">Tutti i piani</string>
+    <string name="list__no_buildings_found">Nessun edificio trovato</string>
+    <string name="list__no_spaces_found">"Nessun spazio trovato</string>
 
     <!-- Sensors -->
-    <string name="sensor--comfort">Comfort</string>
-    <string name="sensor--temperature">Temperatura</string>
-    <string name="sensor--humidity">Umidità</string>
-    <string name="sensor--sound">Suono</string>
-    <string name="sensor--pm25">PM2.5</string>
-    <string name="sensor--pm10">PM10</string>
-    <string name="sensor--carbon-monoxide">Monossido di carbonio</string>
-    <string name="sensor--nitrogen-dioxide">Diossido di azoto</string>
-    <string name="sensor--ozone">Ozono</string>
+    <string name="sensor__comfort">Comfort</string>
+    <string name="sensor__temperature">Temperatura</string>
+    <string name="sensor__humidity">Umidità</string>
+    <string name="sensor__sound">Suono</string>
+    <string name="sensor__pm25">PM2.5</string>
+    <string name="sensor__pm10">PM10</string>
+    <string name="sensor__carbon_monoxide">Monossido di carbonio</string>
+    <string name="sensor__nitrogen_dioxide">Diossido di azoto</string>
+    <string name="sensor__ozone">Ozono</string>
 
     <!-- Weekdays -->
-    <string name="weekday--monday">Lunedì</string>
-    <string name="weekday--tuesday">Martedì</string>
-    <string name="weekday--wednesday">Mercoledì</string>
-    <string name="weekday--thursday">Giovedì</string>
-    <string name="weekday--friday">Venerdì</string>
-    <string name="weekday--saturday">Sabato</string>
-    <string name="weekday--sunday">Domenica</string>
+    <string name="weekday__monday">Lunedì</string>
+    <string name="weekday__tuesday">Martedì</string>
+    <string name="weekday__wednesday">Mercoledì</string>
+    <string name="weekday__thursday">Giovedì</string>
+    <string name="weekday__friday">Venerdì</string>
+    <string name="weekday__saturday">Sabato</string>
+    <string name="weekday__sunday">Domenica</string>
 
     <!-- Space -->
-    <string name="space--no-sensors">Questo spazio non contiene sensori</string>
-    <string name="space--hide-historical-data">Nascondi dati storici</string>
-    <string name="space--show-historical-data">Mostra dati storici</string>
-    <string name="space--average-values">Valori medi</string>
-    <string name="space--previous-day">Giorno precedente</string>
-    <string name="space--next-day">Giorno successivo</string>
+    <string name="space__no_sensors">Questo spazio non contiene sensori</string>
+    <string name="space__hide_historical_data">Nascondi dati storici</string>
+    <string name="space__show_historical_data">Mostra dati storici</string>
+    <string name="space__average_values">Valori medi</string>
+    <string name="space__previous_day">Giorno precedente</string>
+    <string name="space__next_day">Giorno successivo</string>
 
     <!-- Settings -->
     <string name="settings--theme-title">Tema</string>
@@ -59,4 +58,15 @@
     <string name="settings--language-title">Lingua</string>
     <string name="settings--language-subtitle">Scegli la lingua per l'app</string>
     <string name="settings--language-option-title">Lingua</string>
+    <string name="settings__theme_title">Tema</string>
+    <string name="settings__theme_subtitle">Scegli il tema per l'app</string>
+    <string name="settings__theme_option_title">Tema</string>
+    <string name="settings__theme_option_light">Chiaro</string>
+    <string name="settings__theme_option_dark">Scuro</string>
+    <string name="settings__theme_option_system">Segui il sistema</string>
+    <string name="settings__device_colors_title">Usa i colori del dispositivo</string>
+    <string name="settings__device_colors_subtitle">Usa i colori del sistema per l'app</string>
+    <string name="settings__language_title">Lingua</string>
+    <string name="settings__language_subtitle">Scegli la lingua per l'app</string>
+    <string name="settings__language_option_title">Lingua</string>
 </resources>
