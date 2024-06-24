@@ -32,7 +32,7 @@ actual fun openAppLanguageSettings() {
 
 actual fun getAppLanguage(): Flow<String> = flow {
     val languageTag = LocaleListCompat.getAdjustedDefault().toLanguageTags()
-    emit(languageTag.ifEmpty { "en" }.split("-")[0].uppercase())
+    emit(languageTag.ifEmpty { "en" }.split("-", ",")[0].uppercase())
 }
 
 @Composable
