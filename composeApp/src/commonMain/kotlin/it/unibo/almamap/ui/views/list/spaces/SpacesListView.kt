@@ -99,6 +99,7 @@ fun SpacesListView(
                         onValueChangedEvent = {
                             if (it == allBuildingsString) {
                                 viewModel.selectedBuilding = null
+                                viewModel.selectedFloor = null
                                 return@FilledSelect
                             }
                             viewModel.selectedBuilding =
