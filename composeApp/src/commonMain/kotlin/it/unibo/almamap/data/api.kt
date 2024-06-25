@@ -1,5 +1,18 @@
 package it.unibo.almamap.data
 
+import almamap.composeapp.generated.resources.Res
+import almamap.composeapp.generated.resources.book_open_blank_variant
+import almamap.composeapp.generated.resources.desktop_tower
+import almamap.composeapp.generated.resources.elevator
+import almamap.composeapp.generated.resources.human_male_female
+import almamap.composeapp.generated.resources.stairs
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.School
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import it.unibo.almamap.extensions.ColorSerializer
+import kotlinx.serialization.Contextual
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -37,6 +50,32 @@ data class Legend(
         "stairs" -> "M15 5v4h-4v4H7v4H3v3h7v-4h4v-4h4V8h4V5h-7Z"
         "elevators" -> "m7 2l4 4H8v4H6V6H3l4-4m10 8l-4-4h3V2h2v4h3l-4 4M7 12h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2m0 2v6h10v-6H7Z"
         else -> ""
+    }
+
+    @Serializable(ColorSerializer::class)
+    val color = when (code) {
+        "classrooms" -> Color.Red
+        "labs" -> Color(255, 183, 77)
+        "offices" -> Color(33, 150, 243)
+        "services" -> Color(186, 104, 200)
+        "toilette" -> Color(77, 208, 225)
+        /*"stairs", "elevators", */else -> Color(199, 199, 201)
+    }
+
+    /**
+     * The icon associated with the legend.
+     * Can be a [ImageVector] or a [org.jetbrains.compose.resources.DrawableResource] representing a drawable resource.
+     */
+    @Contextual
+    val icon: Any? = when (code) {
+        "classrooms" -> Icons.Outlined.School
+        "labs" -> Res.drawable.desktop_tower
+        "offices" -> Icons.Outlined.Person
+        "services" -> Res.drawable.book_open_blank_variant
+        "toilette" -> Res.drawable.human_male_female
+        "stairs" -> Res.drawable.stairs
+        "elevators" -> Res.drawable.elevator
+        else -> null
     }
 }
 
