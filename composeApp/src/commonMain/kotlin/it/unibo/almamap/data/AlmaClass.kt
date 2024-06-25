@@ -18,4 +18,7 @@ interface AlmaClass {
 
     @GET("api/sensors/{sensorCode}")
     suspend fun getSensor(@Path("sensorCode") code: String): SensorData
+
+    @GET("api/legend")
+    suspend fun getLegend(): List<Legend>
 }
