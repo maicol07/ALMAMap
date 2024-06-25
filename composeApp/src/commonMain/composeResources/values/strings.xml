@@ -14,7 +14,10 @@
     <string name="map__list_all_spaces_in_building_floor">List all spaces in this building and floor</string>
     <string name="map__campus_title">Campus</string>
     <string name="map__select_floor_title">Select floor</string>
-    <string name="map_spaces_in_building_floor">Spaces in %1$s</string>
+    <string name="map__spaces_in_building_floor">Spaces in %1$s</string>
+    <string name="map__info_button">Map Info</string>
+    <string name="map__info_dialog_title">Campus Map</string>
+    <string name="map__info_dialog_text">This is the campus map. You can navigate through the map by zooming in and out, and by dragging the map. You can also select a building and a floor to see the spaces in that building and floor. You can find these markers for every different type of space:</string>
 
     <!-- List -->
     <string name="list__buildings_title">Buildings</string>

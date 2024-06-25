@@ -1,6 +1,7 @@
 package it.unibo.almamap.ui.views.map
 
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -10,6 +11,7 @@ import com.multiplatform.webview.web.WebViewNavigator
 import it.unibo.almamap.data.AlmaClass
 import it.unibo.almamap.data.Building
 import it.unibo.almamap.data.BuildingFloor
+import it.unibo.almamap.data.Legend
 import it.unibo.almamap.data.Space
 import it.unibo.almamap.ui.views.list.buildings.BuildingsListViewModel
 import it.unibo.almamap.ui.views.list.spaces.SpacesListViewModel
@@ -41,6 +43,9 @@ class MapViewModel : ViewModel(), KoinComponent {
     var selectedSpace by mutableStateOf<Space?>(null)
     var mapReady by mutableStateOf(false)
     var spacesListSheetOpened by mutableStateOf(false)
+    var infoDialogOpened by mutableStateOf(false)
+    var isLegendLoading by mutableStateOf(false)
+    var legend = mutableStateListOf<Legend>()
 
     val currentMaps: List<String>
         get(): List<String> = when (phase) {
@@ -55,9 +60,16 @@ class MapViewModel : ViewModel(), KoinComponent {
         spacesListViewModel
 
         viewModelScope.launch {
+            getLegend()
             getCampusMap()
             phase = Phase.Campus
         }
+    }
+
+    suspend fun getLegend() {
+        isLegendLoading = true
+        legend.addAll(api.getLegend())
+        isLegendLoading = false
     }
 
     suspend fun getCampusMap() {
@@ -145,5 +157,9 @@ class MapViewModel : ViewModel(), KoinComponent {
         if (phase != Phase.Campus) {
             phase = phase!!.previous()
         }
+    }
+
+    fun onInfoClick() {
+        infoDialogOpened = true
     }
 }

@@ -64,4 +64,7 @@
     <string name="map__campus_title">Campus</string>
     <string name="map__select_floor_title">Seleziona piano</string>
     <string name="map_spaces_in_building_floor">Spazi in %1$s</string>
+    <string name="map__info_button">Informazioni mappa</string>
+    <string name="map__info_dialog_title">Mappa del campus</string>
+    <string name="map__info_dialog_text">Questa è la mappa del campus. Puoi navigare nella mappa ingrandendo e riducendo, e trascinando la mappa. Puoi anche selezionare un edificio e un piano per vedere gli spazi in quell'edificio e piano. Puoi trovare questi segnalini per ogni diverso tipo di spazio:</string>
 </resources>
