@@ -27,8 +27,9 @@ fun Select(
     options: List<String>,
     onValueChangedEvent: (String) -> Unit,
     modifier: Modifier = Modifier,
+    menuModifier: Modifier = Modifier,
     enabled: Boolean = true,
-    anchor: @Composable() (ExposedDropdownMenuBoxScope.(expanded: Boolean) -> Unit)
+    anchor: @Composable (ExposedDropdownMenuBoxScope.(expanded: Boolean) -> Unit),
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -43,7 +44,7 @@ fun Select(
     ) {
         anchor(expanded)
 
-        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+        ExposedDropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }, modifier = menuModifier) {
             for (option: String in options) {
                 DropdownMenuItem(
                     text = { Text(option) },
@@ -66,12 +67,15 @@ fun FilledSelect(
     label: String,
     onValueChangedEvent: (String) -> Unit,
     modifier: Modifier = Modifier,
+    menuModifier: Modifier = Modifier,
+    textFieldModifier: Modifier = Modifier,
     enabled: Boolean = true
 ) {
     Select(
         options = options,
         onValueChangedEvent = onValueChangedEvent,
-        modifier = modifier
+        modifier = modifier,
+        menuModifier = menuModifier
     ) {
         TextField(
             readOnly = true,
@@ -85,6 +89,7 @@ fun FilledSelect(
             colors = ExposedDropdownMenuDefaults.textFieldColors(),
             modifier = Modifier
                 .menuAnchor()
+                .then(textFieldModifier)
         )
     }
 }
@@ -97,12 +102,15 @@ fun OutlinedSelect(
     label: String,
     onValueChangedEvent: (String) -> Unit,
     modifier: Modifier = Modifier,
+    menuModifier: Modifier = Modifier,
+    textFieldModifier: Modifier = Modifier,
     enabled: Boolean = true
 ) {
     Select(
         options = options,
         onValueChangedEvent = onValueChangedEvent,
-        modifier = modifier
+        modifier = modifier,
+        menuModifier = menuModifier
     ) {
         OutlinedTextField(
             readOnly = true,
@@ -116,6 +124,7 @@ fun OutlinedSelect(
             colors = ExposedDropdownMenuDefaults.outlinedTextFieldColors(),
             modifier = Modifier
                 .menuAnchor()
+                .then(textFieldModifier)
         )
     }
 }
@@ -126,22 +135,28 @@ fun IconButtonSelect(
     onValueChangedEvent: (String) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    menuModifier: Modifier = Modifier,
+    buttonModifier: Modifier = Modifier,
+    iconModifier: Modifier = Modifier,
     icon: ImageVector,
     contentDescription: String?
 ) {
     Select(
         options = options,
         onValueChangedEvent = onValueChangedEvent,
-        modifier = modifier
+        modifier = modifier,
+        menuModifier = menuModifier,
     ) {
-        Column(modifier = Modifier.menuAnchor().fillMaxWidth(0.5f), horizontalAlignment = Alignment.End) {
+        Column(modifier = Modifier.menuAnchor(), horizontalAlignment = Alignment.End) {
             IconButton(
                 enabled = enabled,
-                onClick = {}
+                onClick = {},
+                modifier = buttonModifier
             ) {
                 Icon(
                     imageVector = icon,
-                    contentDescription = contentDescription
+                    contentDescription = contentDescription,
+                    modifier = iconModifier
                 )
             }
         }
