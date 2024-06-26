@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.flow
 import platform.Foundation.NSURL
 import platform.Foundation.NSUserDefaults
 import platform.UIKit.UIApplication
+import platform.UIKit.UIApplicationOpenSettingsURLString
 import platform.UIKit.UIDevice
 
 actual val platform: Platform = object : Platform {
@@ -20,7 +21,7 @@ actual fun setDeviceLanguage(language: String) {
 }
 
 actual fun openAppLanguageSettings() {
-    UIApplication.sharedApplication.openURL(NSURL.URLWithString("App-Prefs:root=General&path=LANGUAGE")!!)
+    UIApplication.sharedApplication.openURL(NSURL.URLWithString(UIApplicationOpenSettingsURLString)!!)
 }
 
 actual fun getAppLanguage(): Flow<String> = flow {
