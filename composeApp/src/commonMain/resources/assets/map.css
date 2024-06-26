@@ -18,6 +18,11 @@
 [id^="Laboratori"] {
     fill: rgb(255, 183, 77) !important;
 }
+/* Hide navigation steps by default */
+/* Grab all elements whose id starts with "Path_" */
+[id^="Path_"] {
+    stroke: transparent !important;
+}
 
 :root {
     --tw-border-spacing-x: 0;
