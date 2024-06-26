@@ -157,6 +157,11 @@ class MapViewModel : ViewModel(), KoinComponent {
         if (phase != Phase.Campus) {
             phase = phase!!.previous()
         }
+        // Check new phase
+        if (phase != null) {
+            selectedBuilding = null
+            selectedFloor = null
+        }
     }
 
     fun onInfoClick() {
