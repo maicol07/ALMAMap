@@ -63,7 +63,12 @@ import it.unibo.almamap.data.SensorData
 import it.unibo.almamap.data.SensorTypes
 import it.unibo.almamap.data.Space
 import it.unibo.almamap.extensions.label
+import it.unibo.almamap.extensions.next
+import it.unibo.almamap.extensions.previous
 import it.unibo.almamap.ui.views.list.spaces.SpacesListViewModel
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.roundToInt
 
@@ -156,7 +161,7 @@ fun SpaceBottomSheet(
                             colors = ListItemDefaults.colors(containerColor = Color.Transparent)
                         )
 
-                        var weekDay by remember { mutableStateOf(0) }
+                        var dayOfWeek by remember { mutableStateOf(Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).dayOfWeek) }
                         val hoursRange = remember { 0..23 }
                         val maximumValue = sensorData?.dayOfWeekAverage?.flatten()?.maxOrNull()
 
@@ -170,7 +175,7 @@ fun SpaceBottomSheet(
 //                                        minimumMajorTickSpacing = 10.dp
                                     ),
                                     yAxisModel = rememberFloatLinearAxisModel(
-                                        0f..(maximumValue?.let { it.toFloat() * 1.5f } ?: 100f),
+                                        0f..(maximumValue?.roundToInt()?.toFloat() ?: 100f),
                                         minorTickCount = 2
                                     ),
 //                                    yAxisTitle = "Valori medi",
@@ -181,15 +186,14 @@ fun SpaceBottomSheet(
                                     VerticalBarPlot(
                                         xData = hoursRange.toList(),
                                         yData = sensorData?.dayOfWeekAverage
-                                        ?.get(weekDay)?.map { it.toFloat() } ?: emptyList(),
+                                            ?.get(dayOfWeek.ordinal)
+                                            ?.map { (it * 100).roundToInt() / 100f } ?: emptyList(),
                                         modifier = Modifier.padding(horizontal = 9.dp),
                                         bar = {
                                             TooltipBox(
                                                 TooltipDefaults.rememberPlainTooltipPositionProvider(),
                                                 state = rememberTooltipState(),
-                                                tooltip = {
-                                                    PlainTooltip { Text("$it") }
-                                                }
+                                                tooltip = { PlainTooltip { Text("$it") } }
                                             ) {
                                                 DefaultVerticalBar(
                                                     SolidColor(Color.Gray),
@@ -214,14 +218,14 @@ fun SpaceBottomSheet(
                                     horizontalArrangement = Arrangement.SpaceBetween,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    IconButton(onClick = { weekDay = (weekDay - 1) % 7 }) {
+                                    IconButton(onClick = { dayOfWeek = dayOfWeek.previous() }) {
                                         Icon(
                                             Icons.AutoMirrored.Rounded.KeyboardArrowLeft,
                                             stringResource(Res.string.space__previous_day)
                                         )
                                     }
-                                    Text(stringResource(WeekDay.from(weekDay).label()))
-                                    IconButton(onClick = { weekDay = (weekDay + 1) % 7 }) {
+                                    Text(stringResource(dayOfWeek.label()))
+                                    IconButton(onClick = { dayOfWeek = dayOfWeek.next() }) {
                                         Icon(
                                             Icons.AutoMirrored.Rounded.KeyboardArrowRight,
                                             stringResource(Res.string.space__next_day)
