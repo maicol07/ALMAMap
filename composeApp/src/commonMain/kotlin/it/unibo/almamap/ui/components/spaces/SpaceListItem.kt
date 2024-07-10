@@ -6,10 +6,12 @@ import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material.icons.rounded.Memory
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import it.unibo.almamap.data.Space
 import it.unibo.almamap.ui.views.list.spaces.SpacesListViewModel
 
@@ -28,5 +30,6 @@ fun SpaceListItem(space: Space, modifier: Modifier = Modifier, viewModel: Spaces
             { Icon(Icons.Rounded.Memory, null) }
         },
         trailingContent = { Icon(Icons.AutoMirrored.Rounded.KeyboardArrowRight, null) },
+        colors = ListItemDefaults.colors(containerColor = Color.Transparent)
     )
 }

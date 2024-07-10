@@ -28,6 +28,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
+import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.PlainTooltip
@@ -150,7 +151,8 @@ fun SpaceBottomSheet(
                                         stringResource(if (expanded) Res.string.space__hide_historical_data else Res.string.space__show_historical_data)
                                     )
                                 }
-                            }
+                            },
+                            colors = ListItemDefaults.colors(containerColor = Color.Transparent)
                         )
 
                         var weekDay by remember { mutableStateOf(0) }
