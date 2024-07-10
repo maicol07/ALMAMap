@@ -114,7 +114,7 @@ fun SpaceBottomSheet(
                             )
                         }
                         ListItem(
-                            modifier = Modifier.clickable { expanded = !expanded },
+                            modifier = Modifier.clickable { if (!isLoading) expanded = !expanded },
                             leadingContent = { Icon(sensorType.icon, null) },
                             overlineContent = { Text(stringResource(sensorType.label)) },
                             headlineContent = {
