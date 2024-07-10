@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -96,7 +97,7 @@ fun SpaceBottomSheet(
             if (space.sensors.isEmpty()) {
                 Text(stringResource(Res.string.space__no_sensors))
             } else {
-                LazyColumn {
+                LazyColumn(Modifier.fillMaxSize()) {
                     items(space.sensors) { sensor ->
                         val sensorData = remember(sensorsData.size) { sensorsData[sensor.code] }
                         val sensorStatus = remember(sensorData) {
