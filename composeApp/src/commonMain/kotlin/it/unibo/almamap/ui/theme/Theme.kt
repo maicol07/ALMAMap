@@ -8,16 +8,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import com.russhwolf.settings.ExperimentalSettingsApi
 import com.russhwolf.settings.ObservableSettings
-import com.russhwolf.settings.Settings
 import com.russhwolf.settings.coroutines.getStringFlow
-import com.russhwolf.settings.coroutines.toFlowSettings
 import it.unibo.almamap.AvailableSettings
 import it.unibo.almamap.ThemeOptions
-import it.unibo.almamap.utils.mutableStateOf
 import org.koin.compose.koinInject
 
 private val lightScheme = lightColorScheme(
