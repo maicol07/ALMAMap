@@ -2,7 +2,7 @@ package it.unibo.almamap.ui.views.map
 
 import almamap.composeapp.generated.resources.Res
 import almamap.composeapp.generated.resources.list__no_spaces_found
-import almamap.composeapp.generated.resources.map_spaces_in_building_floor
+import almamap.composeapp.generated.resources.map__spaces_in_building_floor
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,7 +22,7 @@ import org.koin.core.annotation.KoinExperimentalAPI
 fun MapSpacesBottomSheet(onDismissRequest: () -> Unit, viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
     ModalBottomSheet(onDismissRequest) {
         Text(
-            stringResource(Res.string.map_spaces_in_building_floor, "${viewModel.selectedBuilding?.name}${viewModel.selectedFloor?.name?.let { " - $it" } ?: ""}"),
+            stringResource(Res.string.map__spaces_in_building_floor, "${viewModel.selectedBuilding?.name}${viewModel.selectedFloor?.name?.let { " - $it" } ?: ""}"),
             style = MaterialTheme.typography.headlineSmall,
             modifier = Modifier.padding(16.dp)
         )
