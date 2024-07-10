@@ -30,7 +30,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -81,9 +81,8 @@ fun SpacesListView(
         }
     }
 
-    val openedCategories = remember { mutableStateListOf(*viewModel.spaces.map { it.legend }.toTypedArray()) }
-
     AnimatedVisibility(!viewModel.loading && viewModel.spaces.isNotEmpty()) {
+        val expandedCategories = remember { mutableStateMapOf(*viewModel.spaces.map { it.legend.id to true }.toTypedArray()) }
         LazyColumn {
             item {
                 Row(
@@ -128,7 +127,7 @@ fun SpacesListView(
 
             for ((legend, spaces) in viewModel.visibleSpacesByType.entries.sortedBy { it.key.priority }.filterNot { it.value.isEmpty() }) {
                 item(key = legend.id) {
-                    val expanded = remember(openedCategories.size) { openedCategories.contains(legend) }
+                    val expanded = remember(expandedCategories[legend.id]) { expandedCategories[legend.id]!! }
                     ListItem(
                         modifier = Modifier
                             .animateItemPlacement()
@@ -137,11 +136,7 @@ fun SpacesListView(
                             .padding(16.dp)
                             .clip(MaterialTheme.shapes.large)
                             .clickable {
-                                if (expanded) {
-                                    openedCategories.remove(legend)
-                                } else {
-                                    openedCategories.add(legend)
-                                }
+                                expandedCategories[legend.id] = !expanded
                             },
                         headlineContent = { Text(legend.name) },
                         trailingContent = {
@@ -151,7 +146,7 @@ fun SpacesListView(
                     )
                 }
 
-                if (openedCategories.contains(legend)) {
+                if (expandedCategories[legend.id] == true) {
                     items(spaces, { it.code }) { space ->
                         SpaceListItem(
                             space,
