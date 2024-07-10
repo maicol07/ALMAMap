@@ -78,7 +78,7 @@ fun MapView(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
             webViewJsBridge = jsBridge,
             navigator = webViewNavigator,
             modifier = Modifier.align(Alignment.Center).fillMaxSize(),
-            onCreated = {
+            onCreated = { _ ->
                 viewModel.mapReady = false
             }
         )
