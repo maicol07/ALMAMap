@@ -55,8 +55,7 @@ fun MapInfoDialog(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
                     items(3) {
                         LegendItem(
                             Legend("building", 0, "Loading", "Loading", 0),
-                            Modifier
-                                .animateItemPlacement()
+                            Modifier.animateItem()
                                 .animateContentSize()
                                 .placeholder(true, highlight = PlaceholderHighlight.fade())
                         )
@@ -65,7 +64,7 @@ fun MapInfoDialog(viewModel: MapViewModel = koinViewModel<MapViewModel>()) {
                 items(viewModel.legend.filter { it.icon != null }) { legend ->
                     LegendItem(
                         legend,
-                        Modifier.animateItemPlacement().animateContentSize()
+                        Modifier.animateItem().animateContentSize()
                     )
                 }
             }

@@ -22,7 +22,7 @@ class BuildingsListViewModel: ViewModel(), KoinComponent {
         loadBuildings()
     }
 
-    fun loadBuildings() = viewModelScope.launch {
+    private fun loadBuildings() = viewModelScope.launch {
         loading = true
         buildings.clear()
         buildings.addAll(api.getBuildings())

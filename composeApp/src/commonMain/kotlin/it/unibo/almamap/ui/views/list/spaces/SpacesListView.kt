@@ -8,9 +8,7 @@ import almamap.composeapp.generated.resources.list__floors_title
 import almamap.composeapp.generated.resources.list__no_spaces_found
 import almamap.composeapp.generated.resources.loading
 import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateContentSize
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -46,11 +44,7 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.annotation.KoinExperimentalAPI
 
-@OptIn(
-    ExperimentalFoundationApi::class,
-    ExperimentalAnimationApi::class,
-    KoinExperimentalAPI::class
-)
+@OptIn(KoinExperimentalAPI::class)
 @Composable
 fun SpacesListView(
     viewModel: SpacesListViewModel = koinViewModel<SpacesListViewModel>()
@@ -130,7 +124,7 @@ fun SpacesListView(
                     val expanded = remember(expandedCategories[legend.id]) { expandedCategories[legend.id]!! }
                     ListItem(
                         modifier = Modifier
-                            .animateItemPlacement()
+                            .animateItem()
                             .animateEnterExit()
                             .animateContentSize()
                             .padding(16.dp)
@@ -151,7 +145,7 @@ fun SpacesListView(
                         SpaceListItem(
                             space,
                             Modifier
-                                .animateItemPlacement()
+                                .animateItem()
                                 .animateEnterExit()
                                 .animateContentSize(),
                             viewModel

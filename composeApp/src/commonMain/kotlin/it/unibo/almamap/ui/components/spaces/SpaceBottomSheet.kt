@@ -188,7 +188,7 @@ fun SpaceBottomSheet(
                                                 TooltipDefaults.rememberPlainTooltipPositionProvider(),
                                                 state = rememberTooltipState(),
                                                 tooltip = {
-                                                    PlainTooltip { Text("${it}") }
+                                                    PlainTooltip { Text("$it") }
                                                 }
                                             ) {
                                                 DefaultVerticalBar(
@@ -196,7 +196,7 @@ fun SpaceBottomSheet(
                                                     shape = barShape,
                                                     hoverElement = {
                                                         Text(
-                                                            "${it}",
+                                                            "$it",
                                                             Modifier.padding(4.dp),
                                                             style = MaterialTheme.typography.bodyMedium
                                                         )

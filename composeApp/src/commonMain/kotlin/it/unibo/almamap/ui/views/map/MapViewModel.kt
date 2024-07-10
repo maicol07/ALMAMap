@@ -35,9 +35,9 @@ class MapViewModel : ViewModel(), KoinComponent {
     private val buildingsListViewModel: BuildingsListViewModel by inject()
     val spacesListViewModel: SpacesListViewModel by inject()
     var loading by mutableStateOf(false)
-    var campusMap by mutableStateOf("")
+    private var campusMap by mutableStateOf("")
     var phase by mutableStateOf<Phase?>(null)
-    var floorsMaps = mutableStateMapOf<BuildingFloor, String>()
+    private var floorsMaps = mutableStateMapOf<BuildingFloor, String>()
     var selectedBuilding by mutableStateOf<Building?>(null)
     var selectedFloor by mutableStateOf<BuildingFloor?>(null)
     var selectedSpace by mutableStateOf<Space?>(null)
@@ -47,7 +47,7 @@ class MapViewModel : ViewModel(), KoinComponent {
     var isLegendLoading by mutableStateOf(false)
     var legend = mutableStateListOf<Legend>()
 
-    val currentMaps: List<String>
+    private val currentMaps: List<String>
         get(): List<String> = when (phase) {
             Phase.Campus -> listOf(campusMap)
             Phase.Floor -> listOfNotNull(floorsMaps[selectedBuilding?.floors?.find { it == selectedFloor }!!])
@@ -66,13 +66,13 @@ class MapViewModel : ViewModel(), KoinComponent {
         }
     }
 
-    suspend fun getLegend() {
+    private suspend fun getLegend() {
         isLegendLoading = true
         legend.addAll(api.getLegend())
         isLegendLoading = false
     }
 
-    suspend fun getCampusMap() {
+    private suspend fun getCampusMap() {
         loading = true
         campusMap = api.getCampusMap()
         loading = false

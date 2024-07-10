@@ -41,7 +41,7 @@ fun TopAppBarSearch(viewModel: SpacesListViewModel = koinViewModel<SpacesListVie
                 SpaceListItem(
                     space = space,
                     viewModel = viewModel,
-                    modifier = Modifier.animateItemPlacement().animateContentSize()
+                    modifier = Modifier.animateItem().animateContentSize()
                 )
             }
         }

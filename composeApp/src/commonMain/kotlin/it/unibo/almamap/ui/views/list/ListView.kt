@@ -3,7 +3,6 @@ package it.unibo.almamap.ui.views.list
 import almamap.composeapp.generated.resources.Res
 import almamap.composeapp.generated.resources.list__buildings_title
 import almamap.composeapp.generated.resources.list__spaces_title
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -21,7 +20,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import it.unibo.almamap.ui.views.list.buildings.BuildingsListView
 import it.unibo.almamap.ui.views.list.spaces.SpacesListView
 import it.unibo.almamap.ui.views.list.spaces.SpacesListViewModel
@@ -46,11 +44,7 @@ enum class ListViewTabs(
     Spaces(Res.string.list__spaces_title, { viewModel -> SpacesListView(viewModel) })
 }
 
-@OptIn(
-    ExperimentalMaterial3Api::class,
-    ExperimentalFoundationApi::class,
-    KoinExperimentalAPI::class
-)
+@OptIn(ExperimentalMaterial3Api::class, KoinExperimentalAPI::class)
 @Composable
 fun ListView(viewModel: SpacesListViewModel = koinViewModel<SpacesListViewModel>()) {
     Column {
