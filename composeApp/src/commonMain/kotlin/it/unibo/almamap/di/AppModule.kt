@@ -6,7 +6,7 @@ import it.unibo.almamap.ui.views.list.buildings.BuildingsListViewModel
 import it.unibo.almamap.ui.views.list.spaces.SpacesListViewModel
 import it.unibo.almamap.ui.views.map.MapViewModel
 import it.unibo.almamap.ui.views.settings.SettingsViewModel
-import org.koin.compose.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {

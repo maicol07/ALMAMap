@@ -12,7 +12,7 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.ktorfit)
-    alias(libs.plugins.completeKotlin)
+//    alias(libs.plugins.completeKotlin)
 }
 
 kotlin {
