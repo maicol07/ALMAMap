@@ -6,10 +6,10 @@ appcompat = "1.7.0"
 completeKotlin = "1.1.0"
 compose = "1.7.0-beta02"
 composeDialogs = "2.0.0-SNAPSHOT"
-composeImageLoader = "1.8.1" # Don't update due to Ktor 3.0.0-beta-2 issues
-compose-settings = "2.4.0"
+composeImageLoader = "1.8.3"
+compose-settings = "2.5.0"
 composePlaceholderMaterial3 = "1.0.8"
-composeWebviewMultiplatform = "1.9.20"
+composeWebviewMultiplatform = "1.9.40-alpha01"
 desugar_jdk_libs = "2.1.2"
 kachetor = "1.0.0"
 koalaplotCore = "0.6.3"
@@ -17,7 +17,7 @@ koin-bom = "4.0.0-RC1"
 kotlin = "2.0.20"
 kotlinx-serialization = "1.7.2"
 kotlinxDatetime = "0.6.1"
-ktor = "2.3.12"
+ktor = "3.0.0-rc-1"
 ktorFit = "2.1.0"
 multiplatformSettings = "1.2.0"
 ksp = "2.0.20-1.0.25"
@@ -42,7 +42,7 @@ koin-core = { module = "io.insert-koin:koin-core" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel"}
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
-ktorfit = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorFit" }
+ktorfit = { module = "de.jensklingenberg.ktorfit:ktorfit-lib-ktor-3.0.0-beta-2", version.ref = "ktorFit" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
