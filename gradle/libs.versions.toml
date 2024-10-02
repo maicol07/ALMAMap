@@ -1,21 +1,23 @@
 [versions]
-agp = "8.6.0"
+agp = "8.7.0"
 androidx-activityCompose = "1.9.2"
-androidx-uiTest = "1.7.1"
+androidx-uiTest = "1.7.2"
 appcompat = "1.7.0"
 completeKotlin = "1.1.0"
-compose = "1.7.0-beta02"
+compose = "1.7.0-rc01"
 composeDialogs = "2.0.0-SNAPSHOT"
 composeImageLoader = "1.8.3"
-compose-settings = "2.5.0"
+compose-settings = "2.6.0"
 composePlaceholderMaterial3 = "1.0.8"
-composeWebviewMultiplatform = "1.9.40-alpha01"
+composeWebviewMultiplatform = "1.9.40-alpha03"
 desugar_jdk_libs = "2.1.2"
+
+jetbrainsNavigationCompose = "2.8.0-alpha10"
 kachetor = "1.0.0"
 koalaplotCore = "0.6.3"
-koin-bom = "4.0.0-RC1"
+koin-bom = "4.0.0"
 kotlin = "2.0.20"
-kotlinx-serialization = "1.7.2"
+kotlinx-serialization = "1.7.3"
 kotlinxDatetime = "0.6.1"
 ktor = "3.0.0-rc-1"
 ktorFit = "2.1.0"
@@ -35,6 +37,7 @@ composeImageLoader = { module = "io.github.qdsfdhvh:image-loader", version.ref =
 composeSettings-ui = { group = "com.github.alorma.compose-settings", name = "ui-tiles", version.ref = "compose-settings" }
 composeSettings-ui-extended = { group = "com.github.alorma.compose-settings", name = "ui-tiles-extended", version.ref = "compose-settings" }
 desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar_jdk_libs" }
+jetbrains-navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "jetbrainsNavigationCompose" }
 kachetor = { module = "com.vipulasri.kachetor:kachetor", version.ref = "kachetor" }
 koalaplot-core = { module = "io.github.koalaplot:koalaplot-core", version.ref = "koalaplotCore" }
 koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
