@@ -104,11 +104,11 @@ kotlin {
 
 android {
     namespace = "it.unibo.almamap"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
 
         versionCode = 1
         versionName = "1.0.0"
@@ -129,7 +129,7 @@ android {
         managedDevices.devices {
             maybeCreate<ManagedVirtualDevice>("pixel5").apply {
                 device = "Pixel 5"
-                apiLevel = 34
+                apiLevel = 35
                 systemImageSource = "aosp"
             }
         }
