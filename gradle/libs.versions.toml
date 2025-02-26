@@ -1,28 +1,28 @@
 [versions]
-agp = "8.7.1"
-androidx-activityCompose = "1.9.3"
-androidx-uiTest = "1.7.4"
+agp = "8.8.1"
+androidx-activityCompose = "1.10.0"
+androidx-uiTest = "1.7.8"
 appcompat = "1.7.0"
 completeKotlin = "1.1.0"
-compose = "1.7.0"
+compose = "1.7.3"
 composeDialogs = "2.0.0-SNAPSHOT"
-composeImageLoader = "1.8.3"
-compose-settings = "2.6.0"
-composePlaceholderMaterial3 = "1.0.8"
-composeWebviewMultiplatform = "1.9.40-alpha03"
-desugar_jdk_libs = "2.1.2"
+composeImageLoader = "1.10.0"
+compose-settings = "2.10.0"
+composePlaceholderMaterial3 = "1.0.9"
+composeWebviewMultiplatform = "1.9.40"
+desugar_jdk_libs = "2.1.5"
 
-jetbrainsNavigationCompose = "2.8.0-alpha10"
-kachetor = "1.0.0"
-koalaplotCore = "0.6.3"
-koin-bom = "4.0.0"
-kotlin = "2.0.21"
-kotlinx-serialization = "1.7.3"
-kotlinxDatetime = "0.6.1"
-ktor = "3.0.0"
-ktorFit = "2.1.0"
-multiplatformSettings = "1.2.0"
-ksp = "2.0.21-1.0.25"
+jetbrainsNavigationCompose = "2.8.0-alpha13"
+kachetor = "1.1.0"
+koalaplotCore = "0.8.0"
+koin-bom = "4.0.2"
+kotlin = "2.1.10"
+kotlinx-serialization = "1.8.0"
+kotlinxDatetime = "0.6.2"
+ktor = "3.1.1"
+ktorFit = "2.4.0"
+multiplatformSettings = "1.3.0"
+ksp = "2.1.10-1.0.30"
 
 [libraries]
 androidx-activityCompose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
@@ -45,7 +45,7 @@ koin-core = { module = "io.insert-koin:koin-core" }
 koin-compose = { module = "io.insert-koin:koin-compose" }
 koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel"}
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
-ktorfit = { module = "de.jensklingenberg.ktorfit:ktorfit-lib-ktor-3.0.0-beta-2", version.ref = "ktorFit" }
+ktorfit = { module = "de.jensklingenberg.ktorfit:ktorfit-lib", version.ref = "ktorFit" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
